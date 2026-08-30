@@ -1,129 +1,237 @@
-# AksharEdge Teacher App — Engineering Documentation
+# AksharEdge
 
-Complete engineering specification for **DyslexiaApp**, a React Native CLI
-(Android + iOS) companion app that lets teachers create student records and
-upload learning material (scanned documents, gallery images, PDFs) with
-**offline-first** guarantees and automatic Firebase sync.
+A React Native mobile app for **child cognitive / dyslexia screening**, used by a parent and
+child together. A parent creates a child profile, the child completes a set of age-based game
+assessments (built in Unity, embedded via Unity-as-a-Library) plus a handwriting assessment,
+and the parent receives a personalised screening report.
 
-This repository is the **single source of truth**. It is written to be handed
-directly to Claude Code (or a human developer) and implemented phase by phase
-without further clarification.
+Target age range: **5–14**. Android + iOS, portrait-first.
 
 ---
 
-## 1. What is being built
+## Product flow
 
-A teacher-facing mobile app. One sentence per capability:
+```
+Splash → Welcome → Sign Up / Sign In
+   → Parent Home            (empty-state carousel | populated child list)
+   → Create Child Wizard    (identity → details → location gate → camera gate → confirm)
+   → Ready to Play          (per-child dashboard; Report locked until assessment completes)
+   → Mission Intro → Game rounds (Unity) → Handwriting capture → Celebration
+   → Ready to Play          (Play now locked, Report unlocked)
+   → Screening Report
+```
 
-| # | Capability | Notes |
-|---|---|---|
-| 1 | Teacher creates an account or signs in | Email/password **or** Google Sign-In (Firebase Auth) |
-| 2 | Teacher creates and manages student records | Name, DOB, class, school, language, gender. Students never log in. |
-| 3 | Teacher uploads learning material per student | Scanned document, gallery image, or PDF |
-| 4 | Everything works with no internet | Files are copied into app storage; metadata queued in SQLite |
-| 5 | Queue drains automatically when internet returns | NetInfo-driven sync engine with retry + backoff |
-| 6 | Files land in Firebase Storage, metadata in Firestore | `teachers/{tid}/students/{sid}/...` + `uploads` collection |
-| 7 | Teacher sees per-student upload history and status | Pending / Uploading / Uploaded / Failed, with manual retry |
-
-**Explicitly out of scope for the MVP:** OCR, handwriting analysis, ML/AI
-scoring, report or PDF generation, parent or student logins, admin console.
-The architecture leaves a clean extension point for all of them — see
-[docs/04_APP_ARCHITECTURE.md](docs/04_APP_ARCHITECTURE.md) § Future AI Hook.
+Location and Camera are **hard permission gates** — there is no skip, no "maybe later", and no
+hidden forward path. Only a genuinely granted OS permission unlocks the next step.
 
 ---
 
-## 2. Document index
+## ⚠️ Current state — read before you build
 
-Read in order. Documents 00–07 define *what*, 08–11 define *data*, 12–18
-define *modules*, 19–25 define *delivery*.
+This repository is **mid-migration**. The infrastructure below works; the product surface is
+still being retargeted from an earlier teacher-facing app to AksharEdge.
 
-| # | Document | Purpose |
-|---|---|---|
-| — | [README.md](README.md) | This file — orientation and index |
-| 01 | [PROJECT_OVERVIEW.md](docs/01_PROJECT_OVERVIEW.md) | Problem, users, MVP scope, requirements, acceptance criteria |
-| 02 | [PROJECT_ROADMAP.md](docs/02_PROJECT_ROADMAP.md) | 4-week plan, milestones, risks, definition of done |
-| 03 | [TECH_STACK.md](docs/03_TECH_STACK.md) | Every library, why it was chosen, what it replaced |
-| 04 | [APP_ARCHITECTURE.md](docs/04_APP_ARCHITECTURE.md) | Layers, data flow, dependency rules, diagrams |
-| 05 | [FOLDER_STRUCTURE.md](docs/05_FOLDER_STRUCTURE.md) | Every directory and file, with ownership rules |
-| 06 | [NAVIGATION_FLOW.md](docs/06_NAVIGATION_FLOW.md) | Navigators, route params, deep links, guards |
-| 07 | [SCREEN_SPECIFICATIONS.md](docs/07_SCREEN_SPECIFICATIONS.md) | Every screen: layout, state, validation, errors |
-| 08 | [FIREBASE_SETUP_GUIDE.md](docs/08_FIREBASE_SETUP_GUIDE.md) | Firebase from zero — console, Android, iOS, Google Sign-In |
-| 09 | [FIRESTORE_DATABASE.md](docs/09_FIRESTORE_DATABASE.md) | Collections, fields, indexes, queries, security rules |
-| 10 | [FIREBASE_STORAGE.md](docs/10_FIREBASE_STORAGE.md) | Bucket layout, naming, metadata, rules, lifecycle |
-| 11 | [SQLITE_DATABASE.md](docs/11_SQLITE_DATABASE.md) | Tables, DDL, migrations, DAO contracts |
-| 12 | [AUTHENTICATION_FLOW.md](docs/12_AUTHENTICATION_FLOW.md) | Sign-up, sign-in, Google, session restore, sign-out |
-| 13 | [STUDENT_MODULE.md](docs/13_STUDENT_MODULE.md) | Student CRUD, offline cache, validation |
-| 14 | [UPLOAD_MODULE.md](docs/14_UPLOAD_MODULE.md) | Scan / gallery / PDF capture, file persistence, enqueue |
-| 15 | [OFFLINE_SYNC_ENGINE.md](docs/15_OFFLINE_SYNC_ENGINE.md) | The core module: queue, worker, retry, backoff, background |
-| 16 | [REDUX_ARCHITECTURE.md](docs/16_REDUX_ARCHITECTURE.md) | Store, slices, thunks, selectors, persistence |
-| 17 | [SERVICES_LAYER.md](docs/17_SERVICES_LAYER.md) | Service/repository interfaces and error contracts |
-| 18 | [UI_COMPONENT_GUIDE.md](docs/18_UI_COMPONENT_GUIDE.md) | Design tokens, shared components, accessibility |
-| 19 | [PACKAGE_CONFIGURATION.md](docs/19_PACKAGE_CONFIGURATION.md) | Per-package install + native config + gotchas |
-| 20 | [ANDROID_CONFIGURATION.md](docs/20_ANDROID_CONFIGURATION.md) | Gradle, manifest, permissions, signing, ProGuard |
-| 21 | [IOS_CONFIGURATION.md](docs/21_IOS_CONFIGURATION.md) | Podfile, Info.plist, capabilities, signing |
-| 22 | [TESTING_GUIDE.md](docs/22_TESTING_GUIDE.md) | Unit, integration, manual matrix, offline test scripts |
-| 23 | [CODING_GUIDELINES.md](docs/23_CODING_GUIDELINES.md) | Naming, TypeScript rules, error handling, logging |
-| 24 | [DEVELOPMENT_PHASES.md](docs/24_DEVELOPMENT_PHASES.md) | Phase-by-phase build order with STOP gates |
-| 25 | [CLAUDE_MASTER_PROMPT.md](docs/25_CLAUDE_MASTER_PROMPT.md) | The prompt to paste into Claude Code |
-
----
-
-## 3. How to use this with Claude Code
-
-1. Put this whole folder at the root of your new project.
-2. Open a terminal in that folder and start Claude Code.
-3. Paste the contents of [docs/25_CLAUDE_MASTER_PROMPT.md](docs/25_CLAUDE_MASTER_PROMPT.md)
-   as your first message.
-4. Claude builds **Phase 0**, then stops and waits.
-5. Verify the phase against its acceptance criteria in
-   [docs/24_DEVELOPMENT_PHASES.md](docs/24_DEVELOPMENT_PHASES.md).
-6. Reply `Proceed to Phase 1`. Repeat through Phase 8.
-
-**Do not ask for the whole app in one prompt.** The phase gates exist so each
-layer is verified on a real device before the next layer depends on it.
-
----
-
-## 4. Non-negotiable technical decisions
-
-These are settled. Do not re-litigate them mid-build.
-
-| Decision | Value |
+| | State |
 |---|---|
-| Framework | React Native **CLI** — never Expo |
-| Language | TypeScript, `strict: true` |
-| Architecture | New Architecture (Fabric + TurboModules), Hermes enabled |
-| RN project name | `DyslexiaApp` |
-| Bundle / application id | `com.aksharedge.teacher` |
-| Minimum Android | API 24 (Android 7.0) |
-| Minimum iOS | 15.1 |
-| State | Redux Toolkit |
-| Navigation | React Navigation v7, native-stack |
-| Local DB | `@op-engineering/op-sqlite` |
-| Backend | Firebase (Auth + Firestore + Storage) via `@react-native-firebase/*` |
-| Source of truth for uploads | The **SQLite queue**, not Redux and not Firestore |
+| Firebase auth (email + Google), navigation, theme, shared components | ✅ Working |
+| Unity game embedded and building on Android | ✅ Working (arm64 device only) |
+| `src/features/students/`, `src/features/uploads/`, `src/features/dashboard/` | ⚠️ Legacy teacher-product screens, scheduled for removal |
+| App id `com.aksharedge.teacher`, display name "AksharEdge Teacher" | ⚠️ Rename pending |
+| `yarn typecheck` | ❌ **3 errors** — all in `src/features/games/screens/UnityGameScreen.tsx` |
+| `yarn lint` | ❌ **4 errors, 8 warnings** — same two Unity screens |
+| `yarn test` | ⚠️ No test files exist yet |
+
+A clean `typecheck` and `lint` is a hard gate for every phase — fixing those 7 errors is the
+first task, not a background chore.
+
+The RN project's internal name is still `DyslexiaApp` (visible in `ios/DyslexiaApp/`,
+`android/settings.gradle`, and the `postinstall` script). That is deliberate — renaming it
+ripples through the Xcode project for no user-visible benefit.
 
 ---
 
-## 5. Glossary
+## Stack
 
-| Term | Meaning |
+| | Version |
 |---|---|
-| **Teacher** | The only authenticated user. Owns students and uploads. |
-| **Student** | A record created by a teacher. Has no credentials, never signs in. |
-| **Learning material** | Any uploaded artefact: scanned page, gallery image, or PDF. |
-| **Upload** | One file + its metadata, tracked from capture to Firebase. |
-| **Queue item** | A row in `upload_queue`. Exists from capture until upload succeeds. |
-| **Sync engine** | The background worker that drains `upload_queue`. |
-| **Local URI** | Absolute path to a file inside app-private storage. |
-| **Remote URL** | Firebase Storage download URL, only present after a successful upload. |
+| React Native | 0.86.2 (CLI, **New Architecture** + Hermes) |
+| React | 19.2.3 |
+| TypeScript | 5.8 — `strict`, `noUncheckedIndexedAccess`, `noUnusedLocals` |
+| Navigation | React Navigation 7 (native-stack + bottom-tabs) |
+| State | Redux Toolkit 2.12 + React Redux 9.3 |
+| Backend | Firebase 26.2.0 (Auth, Firestore, Storage) + Google Sign-In 16.1.4 |
+| Unity bridge | `@azesmway/react-native-unity` 1.1.1 |
+| Package manager | Yarn 3.6.4 |
 
 ---
 
-## 6. Reading shortcuts
+## Prerequisites
 
-- *"What do I build first?"* → [24_DEVELOPMENT_PHASES.md](docs/24_DEVELOPMENT_PHASES.md)
-- *"I've never used Firebase"* → [08_FIREBASE_SETUP_GUIDE.md](docs/08_FIREBASE_SETUP_GUIDE.md)
-- *"How does offline actually work?"* → [15_OFFLINE_SYNC_ENGINE.md](docs/15_OFFLINE_SYNC_ENGINE.md)
-- *"What goes where in `src/`?"* → [05_FOLDER_STRUCTURE.md](docs/05_FOLDER_STRUCTURE.md)
-- *"The build is broken on iOS"* → [21_IOS_CONFIGURATION.md](docs/21_IOS_CONFIGURATION.md)
+| | Required |
+|---|---|
+| Node | **20.19.4** (pinned in `.nvmrc`) |
+| Yarn | **3.6.4** (via `corepack`) |
+| Ruby | ≥ 2.6.10 with Bundler (CocoaPods) |
+| Xcode | iOS deployment target **15.1** |
+| Android SDK | compileSdk / targetSdk **36**, minSdk **24** |
+| Android NDK | **Both** `27.1.12297006` (React Native) **and** `23.1.7779620` (Unity IL2CPP) |
+| Unity Editor | 2022.3.62f3 — only needed to re-export the game, not to build the app |
+
+Verify both NDKs are present before your first Android build:
+
+```bash
+ls ~/Library/Android/sdk/ndk/
+# must list BOTH 23.1.7779620 and 27.1.12297006
+```
+
+---
+
+## Setup
+
+```bash
+git clone https://github.com/PundalikDesai-Dynamisch/AksharEdge-app.git
+cd AksharEdge-app
+
+nvm use                 # picks up .nvmrc → Node 20.19.4
+corepack enable
+yarn install
+
+# iOS only
+bundle install
+cd ios && bundle exec pod install && cd ..
+```
+
+**Firebase config files are committed** — `android/app/google-services.json` and
+`ios/GoogleService-Info.plist`, both pointing at project `dyslexiamvp`. These are client
+config, not secrets; security is enforced by `firestore.rules` and `storage.rules`, which live
+in this repo but whose deployment status is **unverified**.
+
+`android/local.properties` is git-ignored — create it with your own `sdk.dir` if the build
+can't find the Android SDK.
+
+⚠️ `android/gradle.properties` contains a hardcoded `NODE_BINARY` path from the original
+developer's machine. Update or delete that line on any other machine.
+
+---
+
+## Running
+
+```bash
+yarn start              # Metro
+yarn android            # build + install on a connected device
+yarn ios
+```
+
+**Android games must be tested on a physical arm64 device.** The Unity export is built for
+`arm64-v8a` only — on an x86_64 emulator the React Native side runs fine but Unity fails to
+load its native libraries. Emulator support needs a re-export from Unity.
+
+---
+
+## ⚠️ Unity is NOT in this repository
+
+`unity/` is git-ignored. **A fresh clone will not build the Android app until it is restored.**
+
+| | |
+|---|---|
+| What's missing | The Unity Android export — ~1.8 GB at `unity/builds/android/` |
+| Why it's excluded | `symbols/arm64-v8a/libil2cpp.so` alone is 243 MB, over GitHub's 100 MB hard limit |
+| Can it be regenerated? | **No.** The Unity *source project* is not in this repo either |
+
+To restore it, copy a backed-up `unity/` directory into the repository root, then follow the
+re-apply checklist in `UNITY_INTEGRATION_SNAPSHOT.md` (see below). The integration spans 7
+layers — an npm dependency, the export payload, three Gradle wiring changes, an IL2CPP ×
+Gradle 9 compatibility patch, an NDK version split, and the React Native screens.
+
+The Gradle 9 patch is the fragile one: **re-exporting from Unity overwrites it** and the build
+fails with `Could not find method BuildIl2Cpp()`. A warning comment is embedded at the top of
+the patched section in `unityLibrary/build.gradle`.
+
+**iOS has no Unity integration at all** — no Podfile target, no iOS export. The games feature
+is Android-only today.
+
+---
+
+## ⚠️ Documentation is NOT in this repository
+
+By project decision, `README.md` is the only markdown file tracked in git. The specification
+and engineering docs live on the maintainer's machine and in an external backup:
+
+```
+~/Desktop/aksharedge-docs-backup/
+```
+
+| Document | What it defines |
+|---|---|
+| `CLAUDE.md` | Engineering rules, layer boundaries, permission and completion standards |
+| `design.md` | Design system — colours, typography, spacing, components, accessibility |
+| `AKSHAREDGE_SCREENS_SPEC.md` | All 28 screens with elements, states, and navigation targets |
+| `UNITY_INTEGRATION_SNAPSHOT.md` | **The only record of how to re-apply the Unity integration** |
+| `docs/` (25 files) | Legacy teacher-product engineering spec — still cited by ~69 source comments |
+| `PROJECT_STATUS.md` | Point-in-time audit of the codebase |
+
+These are **the only copies**. They are not backed up by version control — keep the external
+backup current.
+
+---
+
+## Scripts
+
+| Command | Purpose |
+|---|---|
+| `yarn start` | Metro bundler |
+| `yarn android` / `yarn ios` | Build and install |
+| `yarn typecheck` | `tsc --noEmit` — must be clean |
+| `yarn lint` | ESLint — must be clean |
+| `yarn test` | Jest |
+| `yarn format` | Prettier over `src/` |
+
+---
+
+## Project structure
+
+```
+src/
+├── app/          App root, bootstrap sequence
+├── navigation/   Navigators, typed param lists, deep linking
+├── theme/        Design tokens — colours, typography, spacing, radii, icons
+├── components/   Shared UI, exported through a single barrel
+├── domain/       Entities and errors — pure, no React / Redux / Firebase / IO
+├── services/     Firebase and native integrations
+├── features/     Feature slices, thunks, and screens
+├── store/        Redux store and typed hooks
+├── constants/    Routes, strings, config
+├── types/        Cross-cutting string unions
+└── utils/        Logger
+```
+
+### Enforced layer boundaries
+
+`.eslintrc.js` makes these **build failures**, not conventions:
+
+- Firebase may only be imported inside the data layer
+- Presentation may not reach repositories, the database, or the filesystem directly
+- `src/domain/` must stay pure — no React, Redux, Firebase, or IO
+- `no-console` and `no-explicit-any` are errors; use `src/utils/logger.ts`
+
+Path aliases are mirrored in **both** `tsconfig.json` and `babel.config.js`. They must stay in
+sync — tsc resolves through one and Metro through the other, and drift produces code that
+type-checks but won't bundle.
+
+---
+
+## Firebase
+
+| | |
+|---|---|
+| Project | `dyslexiamvp` |
+| Storage bucket | `dyslexiamvp.firebasestorage.app` |
+| Services | Auth (email/password + Google), Firestore, Storage |
+
+`firestore.rules`, `storage.rules`, and `firestore.indexes.json` are versioned here and wired
+through `firebase.json`. They currently describe the **legacy** teacher/student/upload
+collections and will be rewritten for the parent/child/assessment model.
+
+```bash
+firebase deploy --only firestore:rules,storage:rules
+```
