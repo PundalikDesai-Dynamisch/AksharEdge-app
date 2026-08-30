@@ -34,7 +34,7 @@ export default function WelcomeScreen({
     <Screen>
       <View style={styles.body}>
         <Text style={styles.title}>{strings.app.welcomeTitle}</Text>
-        <Text style={styles.subtitle}>The teacher's companion for student management</Text>
+        <Text style={styles.subtitle}>{strings.app.welcomeSubtitle}</Text>
       </View>
 
       <View style={styles.actions}>
