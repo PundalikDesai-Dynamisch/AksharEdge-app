@@ -1,0 +1,24 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(teacherId) {
+      return isSignedIn() && request.auth.uid == teacherId;
+    }
+
+    match /teachers/{teacherId}/students/{studentId}/{fileName} {
+      allow read: if isOwner(teacherId);
+      allow write: if isOwner(teacherId)
+                   && request.resource.size < 25 * 1024 * 1024
+                   && (request.resource.contentType.matches('image/.*')
+                       || request.resource.contentType == 'application/pdf');
+      allow delete: if false; // the MVP client never deletes remote objects
+    }
+
+    // Deny everything else explicitly.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

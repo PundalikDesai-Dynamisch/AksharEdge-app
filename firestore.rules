@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(teacherId) {
+      return isSignedIn() && request.auth.uid == teacherId;
+    }
+
+    match /teachers/{teacherId} {
+      allow read, update: if isOwner(teacherId);
+      allow create: if isOwner(teacherId)
+                    && request.resource.data.teacherId == teacherId;
+      allow delete: if false; // no account deletion path in the MVP
+    }
+
+    match /students/{studentId} {
+      allow read: if isSignedIn()
+                  && resource.data.teacherId == request.auth.uid;
+      allow create: if isSignedIn()
+                    && request.resource.data.teacherId == request.auth.uid;
+      allow update: if isSignedIn()
+                    && resource.data.teacherId == request.auth.uid
+                    && request.resource.data.teacherId == resource.data.teacherId; // owner cannot be reassigned
+      allow delete: if false; // soft delete only — never a hard delete
+    }
+
+    match /uploads/{uploadId} {
+      allow read: if isSignedIn()
+                  && resource.data.teacherId == request.auth.uid;
+      allow create: if isSignedIn()
+                    && request.resource.data.teacherId == request.auth.uid
+                    && request.resource.data.status == 'uploaded'; // only the terminal state may be written
+      allow update, delete: if false; // uploads are write-once from the client
+    }
+  }
+}

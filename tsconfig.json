@@ -1,0 +1,30 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@features/*": ["src/features/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@services/*": ["src/services/*"],
+      "@db/*": ["src/database/*"],
+      "@store/*": ["src/store/*"],
+      "@theme": ["src/theme"],
+      "@theme/*": ["src/theme/*"],
+      "@utils/*": ["src/utils/*"],
+      // Declared for completeness per doc 03 §2, but unused as an import specifier:
+      // TypeScript reserves the `@types/` prefix for declaration packages and rejects
+      // importing through it (TS6137). Shared model types import via `@/types/*`.
+      "@types/*": ["src/types/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "index.js", "*.js"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}
