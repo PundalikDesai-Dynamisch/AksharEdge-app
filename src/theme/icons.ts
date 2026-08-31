@@ -33,6 +33,8 @@ export const IconName = {
 
   // AksharEdge product vocabulary — permission gates, rewards, report, and child navigation.
   check: 'check', // bare tick for the avatar picker's selection badge
+  lock: 'lock', // a locked tab's non-colour cue — design.md §18
+  pause: 'pause', // the game header's exit control, spec §20
   mapPin: 'map-pin',
   award: 'award',
   star: 'star',
