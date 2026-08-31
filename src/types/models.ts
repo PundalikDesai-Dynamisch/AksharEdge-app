@@ -42,6 +42,21 @@ export function isAvatarId(value: unknown): value is AvatarId {
   return typeof value === 'string' && (AVATAR_IDS as readonly string[]).includes(value);
 }
 
+/**
+ * Real OS permission state. CLAUDE.md §8 requires that Location and Camera are gated on this and
+ * never on a cached boolean, so the union is deliberately shaped around what the OS can actually
+ * tell us rather than around a yes/no.
+ *
+ * The distinction that matters is `denied` vs `blocked`: a denied permission can still be granted
+ * by asking again, a blocked one cannot — re-requesting is a silent no-op the OS never surfaces,
+ * so offering "Try Again" there would be a lie. `requesting` exists so the CTA can be disabled
+ * while the OS dialog is up and a double-tap cannot queue a second request.
+ *
+ * Declared in Phase 1, before any permission code exists, so Phase 3's service is written to fit
+ * this contract rather than the UI being reshaped around react-native-permissions' enum.
+ */
+export type PermissionStatus = 'unavailable' | 'denied' | 'granted' | 'blocked' | 'requesting';
+
 export type AuthStatus = 'unknown' | 'signedOut' | 'signedIn';
 
 export type AuthProvider = 'password' | 'google';

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { strings } from '@/constants/strings';
-import { colors, radii, shadows, spacing, typography } from '@theme';
 
-import { Button } from './Button';
+import { Dialog } from './Dialog';
 
 interface ConfirmDialogProps {
   visible: boolean;
@@ -19,7 +17,13 @@ interface ConfirmDialogProps {
   illustration?: React.ReactNode;
 }
 
-/** Used for every destructive action in doc 07 — delete student, sign out, discard capture. */
+/**
+ * The two-action confirmation used for every reversible-looking but consequential action —
+ * spec §8's "Remove [Child]'s profile?", sign-out, discarding a capture.
+ *
+ * Kept as a named component over `Dialog` because the confirm/cancel pair is the overwhelmingly
+ * common case and callers should not have to assemble it each time.
+ */
 export function ConfirmDialog({
   visible,
   title,
@@ -32,85 +36,15 @@ export function ConfirmDialog({
   illustration,
 }: ConfirmDialogProps): React.JSX.Element {
   return (
-    <Modal
+    <Dialog
       visible={visible}
-      transparent
-      animationType="fade"
-      onRequestClose={onCancel}
-      statusBarTranslucent
-    >
-      <Pressable
-        style={styles.backdrop}
-        onPress={onCancel}
-        accessibilityRole="button"
-        accessibilityLabel={strings.accessibility.closeDialog}
-      >
-        {/* Swallows presses inside the sheet so tapping the dialog body does not dismiss it. */}
-        <Pressable style={styles.sheet} onPress={undefined} accessibilityViewIsModal>
-          {illustration !== undefined && (
-            <View style={styles.illustration}>{illustration}</View>
-          )}
-
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.message}>{message}</Text>
-
-          <View style={styles.actions}>
-            <Button
-              label={cancelLabel}
-              onPress={onCancel}
-              variant="ghost"
-              fullWidth={false}
-              style={styles.action}
-            />
-            <Button
-              label={confirmLabel}
-              onPress={onConfirm}
-              variant={destructive ? 'destructive' : 'primary'}
-              fullWidth={false}
-              style={styles.action}
-            />
-          </View>
-        </Pressable>
-      </Pressable>
-    </Modal>
+      title={title}
+      message={message}
+      illustration={illustration}
+      destructive={destructive}
+      onDismiss={onCancel}
+      secondary={{ label: cancelLabel, onPress: onCancel }}
+      primary={{ label: confirmLabel, onPress: onConfirm }}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: colors.overlay,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.xl,
-  },
-  sheet: {
-    ...shadows.lg,
-    width: '100%',
-    backgroundColor: colors.surface,
-    borderRadius: radii.lg,
-    padding: spacing.xl,
-  },
-  illustration: {
-    alignItems: 'center',
-    marginBottom: spacing.lg,
-  },
-  title: {
-    ...typography.title,
-    color: colors.text,
-  },
-  message: {
-    ...typography.body,
-    color: colors.textMuted,
-    marginTop: spacing.sm,
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: spacing.md,
-    marginTop: spacing.xl,
-  },
-  action: {
-    minWidth: spacing.xxxl * 2,
-  },
-});
