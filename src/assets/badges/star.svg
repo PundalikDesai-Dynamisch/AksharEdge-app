@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="18" fill="#FFF6DC" stroke="#FFD24A" stroke-width="3" stroke-dasharray="8 6"/>
+  <path d="M60 24 l10 22 24 3 -17 17 4 24 -21 -11 -21 11 4 -24 -17 -17 24 -3 z" fill="#FFD24A" stroke="#B5892A" stroke-width="2" stroke-linejoin="round"/>
+  <text x="60" y="104" font-family="monospace" font-size="11" font-weight="700" fill="#B5892A" text-anchor="middle">star</text>
+  <text x="60" y="116" font-family="monospace" font-size="8" fill="#B5892A" text-anchor="middle">PLACEHOLDER</text>
+</svg>
