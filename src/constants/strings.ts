@@ -28,6 +28,13 @@ export const strings = {
       `You're offline — ${count} ${count === 1 ? 'upload' : 'uploads'} waiting`,
   },
 
+  auth: {
+    signOut: 'Sign out',
+    signOutTitle: 'Sign out?',
+    signOutMessage: "You'll need to sign in again to get back to your children's profiles.",
+    signOutCancel: 'Stay signed in',
+  },
+
   headers: {
     register: 'Create Account',
     forgotPassword: 'Reset Password',

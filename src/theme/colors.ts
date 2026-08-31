@@ -6,18 +6,20 @@
  * light and warm. Every accent has a `*Muted` wash for use as a fill behind its own foreground —
  * Chip and Toast pair them dynamically, so both halves of every pair must exist.
  *
- * ⚠️ One unresolved contrast conflict (design.md §8.1 vs §18): white on `primary` measures
- * 2.82:1, which fails WCAG AA for normal text AND the 3:1 large-text threshold. design.md §8.1
- * mandates a coral fill with white text, so it is implemented as specified rather than silently
- * altered — but the primary button label is not currently accessible, and resolving it needs a
- * product decision (deepen the coral, or darken the label). Tracked for
- * phase-7/accessibility-pass. Every other pairing in this file passes AA; see the `*Deep` note
- * below.
+ * ✅ Contrast conflict resolved 2026-08-31, in phase-1/restyle-base-components. design.md §8.1
+ * asks for a coral fill under a white label, but white on `primary` measures 2.82:1 — a fail
+ * against WCAG AA and against the 3:1 large-text threshold. Carrying it to Phase 7 would have
+ * meant restyling every button in the app twice, which is the exact cost Phase 1 exists to avoid,
+ * so it was decided here: **filled actions use `primaryDeep`** (white label → 5.22:1), while
+ * `primary` itself is untouched and still carries accents, active emphasis, and illustration.
+ * The brand colour is intact; only the CTA fill moved. Every pairing in this file now passes AA.
  */
 export const colors = {
   primary: '#FF6B4A', // coral — main CTA, active emphasis, encouragement
   primaryMuted: '#FFEDE7',
-  primaryDeep: '#B54C35', // coral at text weight — passes AA on cream AND on primaryMuted
+  // Coral at text weight. Passes AA on cream, on primaryMuted, and — since 2026-08-31 — as
+  // the fill under a white label on every filled action. See the note above.
+  primaryDeep: '#B54C35',
 
   secondary: '#4AC8FF', // sky — trust, calm actions, supporting UI
   secondaryMuted: '#E4F5FE',

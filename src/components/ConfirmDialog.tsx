@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { strings } from '@/constants/strings';
-import { colors, radii, spacing, typography } from '@theme';
+import { colors, radii, shadows, spacing, typography } from '@theme';
 
 import { Button } from './Button';
 
@@ -15,6 +15,8 @@ interface ConfirmDialogProps {
   confirmLabel?: string;
   cancelLabel?: string;
   destructive?: boolean;
+  /** Mascot/illustration slot required by design.md §8.6 — see the note on EmptyState. */
+  illustration?: React.ReactNode;
 }
 
 /** Used for every destructive action in doc 07 — delete student, sign out, discard capture. */
@@ -27,6 +29,7 @@ export function ConfirmDialog({
   confirmLabel = strings.common.confirm,
   cancelLabel = strings.common.cancel,
   destructive = false,
+  illustration,
 }: ConfirmDialogProps): React.JSX.Element {
   return (
     <Modal
@@ -44,6 +47,10 @@ export function ConfirmDialog({
       >
         {/* Swallows presses inside the sheet so tapping the dialog body does not dismiss it. */}
         <Pressable style={styles.sheet} onPress={undefined} accessibilityViewIsModal>
+          {illustration !== undefined && (
+            <View style={styles.illustration}>{illustration}</View>
+          )}
+
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.message}>{message}</Text>
 
@@ -78,10 +85,15 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
   },
   sheet: {
+    ...shadows.lg,
     width: '100%',
     backgroundColor: colors.surface,
     borderRadius: radii.lg,
     padding: spacing.xl,
+  },
+  illustration: {
+    alignItems: 'center',
+    marginBottom: spacing.lg,
   },
   title: {
     ...typography.title,

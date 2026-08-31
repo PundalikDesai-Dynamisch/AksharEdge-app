@@ -11,7 +11,8 @@ interface LoaderProps {
 export function Loader({ size = 'large', label }: LoaderProps): React.JSX.Element {
   return (
     <View style={styles.container} accessibilityRole="progressbar" accessibilityLabel={label}>
-      <ActivityIndicator size={size} color={colors.primary} />
+      {/* `primaryDeep`: coral on cream is 2.74:1, under the 3:1 floor for a non-text indicator. */}
+      <ActivityIndicator size={size} color={colors.primaryDeep} />
       {label !== undefined && <Text style={styles.label}>{label}</Text>}
     </View>
   );

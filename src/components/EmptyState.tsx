@@ -9,8 +9,15 @@ import { Button } from './Button';
 import { Icon } from './Icon';
 
 interface EmptyStateProps {
-  icon: IconGlyph;
   title: string;
+  icon?: IconGlyph;
+  /**
+   * An illustration slot for design.md §8.6 — normally a `<Mascot />`. Takes precedence over
+   * `icon` when both are supplied. Deliberately a ReactNode rather than a mascot pose name:
+   * importing Mascot here would invert the dependency and couple this component to the asset
+   * registry, so the screen passes the element in instead.
+   */
+  illustration?: React.ReactNode;
   description?: string;
   actionLabel?: string;
   onAction?: () => void;
@@ -21,17 +28,26 @@ interface EmptyStateProps {
  * "no data" text, so copy and layout stay consistent (doc 18 §6).
  */
 export function EmptyState({
-  icon,
   title,
+  icon,
+  illustration,
   description,
   actionLabel,
   onAction,
 }: EmptyStateProps): React.JSX.Element {
   return (
     <View style={styles.container}>
-      <View style={styles.iconCircle}>
-        <Icon name={icon} size={28} color="primary" />
-      </View>
+      {illustration !== undefined ? (
+        <View style={styles.illustration}>{illustration}</View>
+      ) : (
+        icon !== undefined && (
+          <View style={styles.iconCircle}>
+            {/* `primaryDeep`, not `primary`: coral on primaryMuted is 2.50:1 and misses the
+                3:1 floor for an icon that carries meaning. */}
+            <Icon name={icon} size={28} color="primaryDeep" />
+          </View>
+        )
+      )}
 
       <Text style={styles.title}>{title}</Text>
       {description !== undefined && <Text style={styles.description}>{description}</Text>}
@@ -50,6 +66,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.xxl,
+  },
+  illustration: {
+    marginBottom: spacing.lg,
   },
   iconCircle: {
     width: spacing.xxxl,
