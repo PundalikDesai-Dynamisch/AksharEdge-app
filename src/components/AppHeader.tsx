@@ -20,9 +20,9 @@ interface AppHeaderProps {
 }
 
 /**
- * An in-content header for screens that draw their own (Dashboard's greeting block, the
- * UploadOptions sheet). Navigator-supplied headers stay the default everywhere else —
- * doc 18 §3 gives no contract for this component, so its API is kept deliberately narrow.
+ * An in-content header for screens that draw their own rather than taking the navigator's —
+ * Parent Home's greeting block, and the bottom sheets Phase 3 introduces. Navigator-supplied
+ * headers stay the default everywhere else, so this API is kept deliberately narrow.
  */
 export function AppHeader({ title, subtitle, action }: AppHeaderProps): React.JSX.Element {
   return (
