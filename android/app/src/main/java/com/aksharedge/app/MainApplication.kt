@@ -1,4 +1,4 @@
-package com.aksharedge.teacher
+package com.aksharedge.app
 
 import android.app.Application
 import com.facebook.react.PackageList
