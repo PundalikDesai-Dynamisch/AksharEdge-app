@@ -6,6 +6,42 @@
  * removed with it.
  */
 
+/**
+ * The illustrated avatar set.
+ *
+ * A closed union rather than `string`, because design.md §7 forbids photographic child imagery
+ * outright — a bare string would happily accept a photo URL, which is precisely what that rule
+ * exists to prevent. Declared here rather than derived from the asset registry so the domain and
+ * data layers can name an avatar without importing artwork; `src/assets/registry.ts` proves the
+ * map exhaustive against this union with `satisfies`.
+ *
+ * The runtime tuple and its guard live beside the type deliberately: Firestore is untyped at the
+ * wire, so the mapper needs a value to check against, and a second copy of this list somewhere
+ * else is a list that drifts.
+ */
+export const AVATAR_IDS = [
+  'avatar-01',
+  'avatar-02',
+  'avatar-03',
+  'avatar-04',
+  'avatar-05',
+  'avatar-06',
+  'avatar-07',
+  'avatar-08',
+  'avatar-09',
+  'avatar-10',
+  'avatar-11',
+  'avatar-12',
+] as const;
+
+export type AvatarId = (typeof AVATAR_IDS)[number];
+
+export const DEFAULT_AVATAR_ID: AvatarId = 'avatar-01';
+
+export function isAvatarId(value: unknown): value is AvatarId {
+  return typeof value === 'string' && (AVATAR_IDS as readonly string[]).includes(value);
+}
+
 export type AuthStatus = 'unknown' | 'signedOut' | 'signedIn';
 
 export type AuthProvider = 'password' | 'google';

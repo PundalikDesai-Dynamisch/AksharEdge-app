@@ -32,6 +32,7 @@ export const IconName = {
   gamepad: 'play-circle',
 
   // AksharEdge product vocabulary — permission gates, rewards, report, and child navigation.
+  check: 'check', // bare tick for the avatar picker's selection badge
   mapPin: 'map-pin',
   award: 'award',
   star: 'star',

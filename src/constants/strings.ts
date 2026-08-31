@@ -48,5 +48,7 @@ export const strings = {
     clearSearchField: 'Clear search field',
     closeDialog: 'Close dialog',
     dismissToast: 'Dismiss notification',
+    avatarGroup: 'Choose an avatar',
+    avatarOption: (position: number): string => `Avatar ${position}`,
   },
 } as const;

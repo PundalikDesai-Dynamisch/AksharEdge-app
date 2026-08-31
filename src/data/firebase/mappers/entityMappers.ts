@@ -5,6 +5,8 @@ import type { Parent } from '@/domain/entities/Parent';
 import type { Report } from '@/domain/entities/Report';
 import type { WritingSample } from '@/domain/entities/WritingSample';
 
+import { DEFAULT_AVATAR_ID, isAvatarId } from '@/types/models';
+
 import { nowIso, toIso, toIsoOrNull } from './timestamps';
 
 /**
@@ -45,7 +47,10 @@ export function toChild(id: string, d: Doc): Child {
     childId: id,
     parentId: str(d.parentId),
     name: str(d.name),
-    avatarId: str(d.avatarId),
+    // The one place an untrusted avatar value enters the app. Anything not in the illustrated
+    // set — including a photo URL, which design.md §7 forbids — collapses to the default here,
+    // so nothing downstream has to defend against it again.
+    avatarId: isAvatarId(d.avatarId) ? d.avatarId : DEFAULT_AVATAR_ID,
     ageYears: num(d.ageYears),
     schooling:
       schooling === 'preK' || schooling === 'primary' || schooling === 'middle'

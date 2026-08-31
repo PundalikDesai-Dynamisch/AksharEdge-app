@@ -1,3 +1,5 @@
+import type { AvatarId } from '@/types/models';
+
 import Avatar01 from './avatars/avatar-01.svg';
 import Avatar02 from './avatars/avatar-02.svg';
 import Avatar03 from './avatars/avatar-03.svg';
@@ -54,11 +56,15 @@ export const AVATARS = {
   'avatar-10': Avatar10,
   'avatar-11': Avatar11,
   'avatar-12': Avatar12,
-} as const;
+} as const satisfies Record<AvatarId, unknown>;
 
-export type AvatarId = keyof typeof AVATARS;
-
-/** Stable ordering for the wizard's avatar picker — a 3x4 grid with no scrolling. */
-export const AVATAR_IDS = Object.keys(AVATARS) as readonly AvatarId[];
-
-export const DEFAULT_AVATAR_ID: AvatarId = 'avatar-01';
+/**
+ * `satisfies` rather than the `keyof typeof` this used to derive: the union now lives in
+ * types/models.ts so the domain and data layers can name an avatar without importing artwork.
+ * This line is what keeps the two in step — adding an id to the union without adding its file
+ * fails to compile here, rather than rendering a blank square at runtime.
+ *
+ * `AVATAR_IDS` is re-exported so screens keep importing everything avatar-shaped from one place.
+ */
+export { AVATAR_IDS, DEFAULT_AVATAR_ID } from '@/types/models';
+export type { AvatarId } from '@/types/models';

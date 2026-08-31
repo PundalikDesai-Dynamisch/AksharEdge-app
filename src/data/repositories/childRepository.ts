@@ -1,11 +1,12 @@
 import type { Child } from '@/domain/entities/Child';
+import type { AvatarId } from '@/types/models';
 
 import type { Observer, ErrorObserver, Unsubscribe } from './types';
 
 export interface CreateChildInput {
   readonly parentId: string;
   readonly name: string;
-  readonly avatarId: string;
+  readonly avatarId: AvatarId;
   readonly ageYears: number;
   readonly schooling: Child['schooling'];
   readonly gender: Child['gender'];
