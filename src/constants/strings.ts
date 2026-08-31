@@ -35,6 +35,13 @@ export const strings = {
     signOutCancel: 'Stay signed in',
   },
 
+  /** The child status pill on Parent Home and All Children — spec §7. */
+  status: {
+    not_started: 'Not started',
+    in_progress: 'In progress',
+    report_ready: 'Report ready',
+  },
+
   headers: {
     register: 'Create Account',
     forgotPassword: 'Reset Password',
@@ -50,5 +57,11 @@ export const strings = {
     dismissToast: 'Dismiss notification',
     avatarGroup: 'Choose an avatar',
     avatarOption: (position: number): string => `Avatar ${position}`,
+    goBack: 'Go back',
+    pauseAndExit: 'Pause and exit',
+    tabLocked: 'Locked',
+    newResult: 'New result',
+    stepProgress: (completed: number, total: number): string =>
+      `Step ${completed} of ${total} complete`,
   },
 } as const;

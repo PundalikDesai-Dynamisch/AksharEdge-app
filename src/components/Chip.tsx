@@ -3,15 +3,19 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors, radii, spacing, typography } from '@theme';
 
-import type { ColorToken } from '@theme';
+import type { ColorToken, IconGlyph } from '@theme';
 
-type ChipTone = 'neutral' | 'warning' | 'danger' | 'success' | 'info';
+import { Icon } from './Icon';
+
+export type ChipTone = 'neutral' | 'warning' | 'danger' | 'success' | 'info';
 
 interface ChipProps {
   label: string;
   selected?: boolean;
   onPress?: () => void;
   tone?: ChipTone;
+  /** Pairs a glyph with the tone so status never rests on colour alone (design.md §18). */
+  icon?: IconGlyph;
 }
 
 /** Foregrounds are the `*Deep` variants: the base colours are fills, and base-on-muted is not
@@ -29,13 +33,16 @@ export function Chip({
   selected = false,
   onPress,
   tone = 'neutral',
+  icon,
 }: ChipProps): React.JSX.Element {
   const palette = TONES[tone];
-  const foreground = selected ? colors.textInverse : colors[palette.fg];
-  const background = selected ? colors.primary : colors[palette.bg];
+  const foregroundToken: ColorToken = selected ? 'textInverse' : palette.fg;
+  const foreground = colors[foregroundToken];
+  const background = selected ? colors.primaryDeep : colors[palette.bg];
 
   const body = (
     <View style={[styles.chip, { backgroundColor: background }]}>
+      {icon !== undefined && <Icon name={icon} size={14} color={foregroundToken} />}
       <Text style={[styles.label, { color: foreground }]} numberOfLines={1}>
         {label}
       </Text>
@@ -61,6 +68,9 @@ export function Chip({
 
 const styles = StyleSheet.create({
   chip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     borderRadius: radii.pill,
