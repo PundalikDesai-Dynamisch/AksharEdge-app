@@ -1,6 +1,9 @@
 /**
  * Route names as values, so navigators and imperative callers cannot drift on a typo.
  * The param-list types that give these names their shape live in navigation/types.ts.
+ *
+ * Trimmed to the routes that still exist after the teacher-era screens were removed. Phases 2–4
+ * add the parent, wizard, child-tab, and assessment routes.
  */
 export const ROUTES = {
   splash: 'Splash',
@@ -13,17 +16,8 @@ export const ROUTES = {
   forgotPassword: 'ForgotPassword',
 
   mainTabs: 'MainTabs',
-  dashboardTab: 'DashboardTab',
-  studentsTab: 'StudentsTab',
-  historyTab: 'HistoryTab',
-  settingsTab: 'SettingsTab',
+  homeTab: 'HomeTab',
   gamesTab: 'GamesTab',
 
-  addEditStudent: 'AddEditStudent',
-  studentDetail: 'StudentDetail',
-  uploadOptions: 'UploadOptions',
-  capturePreview: 'CapturePreview',
-  profile: 'Profile',
-  about: 'About',
   unityGame: 'UnityGame',
 } as const;

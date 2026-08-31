@@ -29,19 +29,10 @@ export const strings = {
   },
 
   headers: {
-    login: 'Sign In',
     register: 'Create Account',
     forgotPassword: 'Reset Password',
-    dashboard: 'Dashboard',
-    students: 'Students',
-    uploads: 'Uploads',
-    settings: 'Settings',
-    addStudent: 'Add Student',
-    editStudent: 'Edit Student',
-    profile: 'Profile',
-    about: 'About',
+    home: 'Home',
     games: 'Games',
-    review: (count: number): string => `Review (${count})`,
   },
 
   accessibility: {

@@ -2,13 +2,13 @@ import type { NavigatorScreenParams } from '@react-navigation/native';
 
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import type { CapturedFileDraft } from '@/domain/entities/CapturedFileDraft';
-import type { CaptureSource, UploadStatus } from '@/types/models';
-
 /**
- * Every param list in the app lives in this file (doc 05 §2). Params must stay serializable
- * so state persistence and deep links work — pass an entity's id, never the entity
- * (doc 06 §2). `CapturePreview.files` is the single exception and carries plain drafts only.
+ * Every param list in the app lives in this file. Params must stay serializable so state
+ * persistence and deep links work — pass an entity's id, never the entity.
+ *
+ * This is the transitional shape left after the teacher-era screens were removed. Phase 2 adds
+ * the parent stack (Parent Home, All Children, Parent Details, Support), Phase 3 the child
+ * wizard, and Phase 4 the per-child tab navigator and assessment stack.
  */
 
 export type RootStackParamList = {
@@ -25,30 +25,12 @@ export type AuthStackParamList = {
 };
 
 export type MainTabsParamList = {
-  DashboardTab: undefined;
-  StudentsTab: undefined;
-  HistoryTab: { initialFilter?: UploadStatus } | undefined;
-  SettingsTab: undefined;
+  HomeTab: undefined;
   GamesTab: undefined;
 };
 
 export type AppStackParamList = {
   MainTabs: NavigatorScreenParams<MainTabsParamList>;
-
-  /** `studentId` absent = create. */
-  AddEditStudent: { studentId?: string };
-  StudentDetail: { studentId: string };
-
-  UploadOptions: { studentId: string };
-  CapturePreview: {
-    studentId: string;
-    /** Not yet enqueued — these are still temp-URI drafts. */
-    files: CapturedFileDraft[];
-    source: CaptureSource;
-  };
-
-  Profile: undefined;
-  About: undefined;
   UnityGame: { gameId: string };
 };
 
@@ -65,7 +47,7 @@ export type AuthScreenProps<T extends keyof AuthStackParamList> = NativeStackScr
   T
 >;
 
-/** Makes `useNavigation()` typed with no explicit generics (doc 06 §11). */
+/** Makes `useNavigation()` typed with no explicit generics. */
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends AppStackParamList {}

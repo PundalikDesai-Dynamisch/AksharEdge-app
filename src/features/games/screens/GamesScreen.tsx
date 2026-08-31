@@ -9,7 +9,10 @@ import { strings } from '@/constants/strings';
 
 import { colors, spacing, typography } from '@theme';
 
-/** Placeholder game index. Phase 4 replaces this with the real mission sequence. */
+/**
+ * Interim game index. The embedded Unity 2D runner stands in as the assessment game until
+ * real game code exists; Phase 4 drives it from the assessment flow rather than from here.
+ */
 const GAMES = [{ id: 'simpleMobile', title: 'Simple Mobile Game' }] as const;
 
 export function GamesScreen(): React.JSX.Element {

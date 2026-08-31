@@ -5,27 +5,16 @@ import { APP_SCHEME } from '@/constants/config';
 import type { RootStackParamList } from './types';
 
 /**
- * Custom scheme only — Universal/App Links are out of MVP scope (doc 06 §7).
+ * Custom scheme only — Universal/App Links are out of MVP scope.
  *
- * A link arriving while signed out lands on the auth stack; the pending URL is held in
- * `ui.slice.pendingDeepLink` and re-applied once `authStatus` becomes `signedIn` (doc 06 §7).
- * That consumption side arrives with ui.slice in Phase 2.
+ * The teacher-era deep links (`uploads`, `settings`, `student/:studentId`) pointed at screens
+ * that no longer exist and have been removed with them. Phase 2 adds the parent routes and
+ * Phase 4 the per-child ones, at which point a link arriving while signed out will need holding
+ * until `authStatus` becomes `signedIn`.
  */
 export const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [APP_SCHEME],
   config: {
-    screens: {
-      App: {
-        screens: {
-          MainTabs: {
-            screens: {
-              HistoryTab: 'uploads',
-              SettingsTab: 'settings',
-            },
-          },
-          StudentDetail: 'student/:studentId',
-        },
-      },
-    },
+    screens: {},
   },
 };
