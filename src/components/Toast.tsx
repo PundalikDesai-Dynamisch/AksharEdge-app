@@ -26,10 +26,10 @@ interface ToastProps {
 
 const KIND_STYLE: Readonly<Record<ToastKind, { fg: ColorToken; bg: ColorToken; icon: IconGlyph }>> =
   {
-    success: { fg: 'success', bg: 'successMuted', icon: IconName.checkCircle },
-    info: { fg: 'info', bg: 'infoMuted', icon: IconName.info },
-    warning: { fg: 'warning', bg: 'warningMuted', icon: IconName.alertCircle },
-    error: { fg: 'danger', bg: 'dangerMuted', icon: IconName.alertCircle },
+    success: { fg: 'successDeep', bg: 'successMuted', icon: IconName.checkCircle },
+    info: { fg: 'infoDeep', bg: 'infoMuted', icon: IconName.info },
+    warning: { fg: 'warningDeep', bg: 'warningMuted', icon: IconName.alertCircle },
+    error: { fg: 'dangerDeep', bg: 'dangerMuted', icon: IconName.alertCircle },
   };
 
 export function Toast({
