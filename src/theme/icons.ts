@@ -1,7 +1,7 @@
 /**
  * The single mapping from this app's icon vocabulary to the underlying icon set (Feather).
  * Nothing else in `src/` names an icon string directly, so swapping icon sets later touches
- * only this file plus components/Icon.tsx (doc 18 §7).
+ * only this file plus components/Icon.tsx.
  */
 export const IconName = {
   clock: 'clock',
@@ -30,6 +30,15 @@ export const IconName = {
   info: 'info',
   inbox: 'inbox',
   gamepad: 'play-circle',
+
+  // AksharEdge product vocabulary — permission gates, rewards, report, and child navigation.
+  mapPin: 'map-pin',
+  award: 'award',
+  star: 'star',
+  bookOpen: 'book-open',
+  barChart: 'bar-chart-2',
+  helpCircle: 'help-circle',
+  arrowLeft: 'arrow-left',
 } as const;
 
 export type IconKey = keyof typeof IconName;

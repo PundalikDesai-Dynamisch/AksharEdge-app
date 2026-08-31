@@ -1,24 +1,54 @@
+/**
+ * The AksharEdge palette, per design.md §4.
+ *
+ * Coral carries important actions and encouragement, sky blue carries trust and supporting UI,
+ * yellow is reserved for rewards and celebration, and green means completed. Backgrounds stay
+ * light and warm. Every accent has a `*Muted` wash for use as a fill behind its own foreground —
+ * Chip and Toast pair them dynamically, so both halves of every pair must exist.
+ *
+ * ⚠️ One unresolved contrast conflict (design.md §8.1 vs §18): white on `primary` measures
+ * 2.82:1, which fails WCAG AA for normal text AND the 3:1 large-text threshold. design.md §8.1
+ * mandates a coral fill with white text, so it is implemented as specified rather than silently
+ * altered — but the primary button label is not currently accessible, and resolving it needs a
+ * product decision (deepen the coral, or darken the label). Tracked for
+ * phase-7/accessibility-pass. Every other pairing in this file passes AA; see the `*Deep` note
+ * below.
+ */
 export const colors = {
-  primary: '#2F6F4E', // deep green — brand, primary actions
-  primaryMuted: '#E7F2EC',
-  secondary: '#B5651D', // warm accent — used sparingly (e.g. failed-state icon)
-  background: '#FAFAF8',
+  primary: '#FF6B4A', // coral — main CTA, active emphasis, encouragement
+  primaryMuted: '#FFEDE7',
+  primaryDeep: '#B54C35', // coral at text weight — passes AA on cream AND on primaryMuted
+
+  secondary: '#4AC8FF', // sky — trust, calm actions, supporting UI
+  secondaryMuted: '#E4F5FE',
+
+  accent: '#FFD24A', // yellow — rewards and celebration ONLY, never routine UI
+  accentMuted: '#FFF6DC',
+
+  background: '#FFFBF5', // warm cream
   surface: '#FFFFFF',
-  border: '#E3E1DC',
-  text: '#1E1E1C',
-  textMuted: '#6B6B66',
+  border: '#EDE0D1', // warm and soft — design.md §5 avoids harsh borders
+  text: '#333333', // never pure black
+  textMuted: '#6B6058',
   textInverse: '#FFFFFF',
 
-  success: '#2E7D32',
-  successMuted: '#E8F5E9',
-  warning: '#B7791F',
-  warningMuted: '#FEF3E2',
-  danger: '#B3261E',
-  dangerMuted: '#FBEAE9',
-  info: '#1565C0',
-  infoMuted: '#E8F1FB',
+  // Base colours are design.md's, for fills, icons and status dots. The `*Deep` pairs exist
+  // because base-on-muted is illegible as text: success on successMuted measures 1.65:1 and
+  // warning on warningMuted 2.13:1. Chip, Toast and Button take foregrounds from `*Deep`.
+  success: '#5FD87A',
+  successDeep: '#377D47',
+  successMuted: '#E7F9ED',
+  warning: '#E8952F',
+  warningDeep: '#99621F',
+  warningMuted: '#FDF0DF',
+  danger: '#D34247',
+  dangerDeep: '#C33D41',
+  dangerMuted: '#FDECEC',
+  info: '#0E86BC',
+  infoDeep: '#0C76A5',
+  infoMuted: '#E4F5FE',
 
-  overlay: 'rgba(0,0,0,0.45)',
+  overlay: 'rgba(51, 41, 33, 0.45)', // warm-biased scrim, not neutral black
 } as const;
 
 export type ColorToken = keyof typeof colors;

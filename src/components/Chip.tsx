@@ -14,12 +14,14 @@ interface ChipProps {
   tone?: ChipTone;
 }
 
+/** Foregrounds are the `*Deep` variants: the base colours are fills, and base-on-muted is not
+ *  legible as text (success on successMuted measures 1.65:1). */
 const TONES: Readonly<Record<ChipTone, { fg: ColorToken; bg: ColorToken }>> = {
   neutral: { fg: 'textMuted', bg: 'surface' },
-  warning: { fg: 'warning', bg: 'warningMuted' },
-  danger: { fg: 'danger', bg: 'dangerMuted' },
-  success: { fg: 'success', bg: 'successMuted' },
-  info: { fg: 'info', bg: 'infoMuted' },
+  warning: { fg: 'warningDeep', bg: 'warningMuted' },
+  danger: { fg: 'dangerDeep', bg: 'dangerMuted' },
+  success: { fg: 'successDeep', bg: 'successMuted' },
+  info: { fg: 'infoDeep', bg: 'infoMuted' },
 };
 
 export function Chip({
