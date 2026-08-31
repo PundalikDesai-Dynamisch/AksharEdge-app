@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="18" fill="#FFF6DC" stroke="#FFD24A" stroke-width="3" stroke-dasharray="8 6"/>
+  <path d="M40 26 h40 v20 a20 20 0 0 1 -40 0 z" fill="#FFD24A" stroke="#B5892A" stroke-width="2"/>
+  <path d="M40 30 h-10 a10 10 0 0 0 10 14 z M80 30 h10 a10 10 0 0 1 -10 14 z" fill="#FFD24A" stroke="#B5892A" stroke-width="2"/>
+  <rect x="54" y="66" width="12" height="14" fill="#B5892A"/>
+  <rect x="42" y="80" width="36" height="8" rx="3" fill="#B5892A"/>
+  <text x="60" y="104" font-family="monospace" font-size="11" font-weight="700" fill="#B5892A" text-anchor="middle">trophy</text>
+  <text x="60" y="116" font-family="monospace" font-size="8" fill="#B5892A" text-anchor="middle">PLACEHOLDER</text>
+</svg>

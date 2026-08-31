@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="18" fill="#FFF6DC" stroke="#FFD24A" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="60" cy="46" r="22" fill="#FFD24A" stroke="#B5892A" stroke-width="2"/>
+  <circle cx="60" cy="46" r="11" fill="#FFFBF5"/>
+  <path d="M48 64 l-6 22 18 -9 18 9 -6 -22" fill="#FF6B4A" stroke="#B54C35" stroke-width="2" stroke-linejoin="round"/>
+  <text x="60" y="104" font-family="monospace" font-size="11" font-weight="700" fill="#B5892A" text-anchor="middle">ribbon</text>
+  <text x="60" y="116" font-family="monospace" font-size="8" fill="#B5892A" text-anchor="middle">PLACEHOLDER</text>
+</svg>

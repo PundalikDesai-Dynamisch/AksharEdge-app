@@ -1,5 +1,9 @@
 import type { AvatarId } from '@/types/models';
 
+import Ribbon from './badges/ribbon.svg';
+import Star from './badges/star.svg';
+import Trophy from './badges/trophy.svg';
+
 import Avatar01 from './avatars/avatar-01.svg';
 import Avatar02 from './avatars/avatar-02.svg';
 import Avatar03 from './avatars/avatar-03.svg';
@@ -68,3 +72,19 @@ export const AVATARS = {
  */
 export { AVATAR_IDS, DEFAULT_AVATAR_ID } from '@/types/models';
 export type { AvatarId } from '@/types/models';
+
+/**
+ * Reward artwork — design.md §8.8 asks for illustrated stars, trophies and ribbons rather than
+ * an icon glyph, and reserves accent yellow for exactly this.
+ *
+ * Unlike `AvatarId`, `BadgeType` is derived here with `keyof typeof` rather than declared in
+ * types/models.ts: a badge is chosen by the screen at render time and never persisted on an
+ * entity, so no domain or data code needs to name one.
+ */
+export const BADGES = {
+  star: Star,
+  trophy: Trophy,
+  ribbon: Ribbon,
+} as const;
+
+export type BadgeType = keyof typeof BADGES;

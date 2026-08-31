@@ -126,6 +126,12 @@ module.exports = {
       },
     },
     {
+      // Jest scaffolding is plain CommonJS with no TypeScript to annotate, so the return-type
+      // rule has nothing useful to say about it.
+      files: ['jest/**/*.js', 'jest.config.js'],
+      rules: { '@typescript-eslint/explicit-function-return-type': 'off' },
+    },
+    {
       // The logger is the one sanctioned console call site (doc 23 §5).
       files: ['src/utils/logger.ts'],
       rules: { 'no-console': 'off' },
