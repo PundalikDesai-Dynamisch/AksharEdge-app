@@ -48,6 +48,7 @@ module.exports = {
           { pattern: '@components/**', group: 'internal' },
           { pattern: '@services/**', group: 'internal' },
           { pattern: '@data/**', group: 'internal' },
+          { pattern: '@assets/**', group: 'internal' },
           { pattern: '@db/**', group: 'internal' },
           { pattern: '@store/**', group: 'internal' },
           { pattern: '@theme', group: 'internal' },
