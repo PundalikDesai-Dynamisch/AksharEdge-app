@@ -1,5 +1,6 @@
 export { AppHeader } from './AppHeader';
 export { Avatar } from './Avatar';
+export { AvatarPicker } from './AvatarPicker';
 export { Button } from './Button';
 export { Card } from './Card';
 export { Chip } from './Chip';

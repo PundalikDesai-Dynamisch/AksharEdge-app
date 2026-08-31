@@ -1,16 +1,15 @@
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { AVATAR_IDS } from '@assets/registry';
-import { Avatar, Button, ConfirmDialog, Mascot, Screen } from '@components';
+import { DEFAULT_AVATAR_ID } from '@assets/registry';
+import { AvatarPicker, Button, ConfirmDialog, Mascot, Screen } from '@components';
 import { strings } from '@/constants/strings';
 import { signOutThunk } from '@features/auth/auth.thunks';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 
 import { colors, spacing, typography } from '@theme';
 
-/** Enough avatars to confirm the registry resolves more than one file. */
-const PREVIEW_AVATARS = AVATAR_IDS.slice(0, 4);
+import type { AvatarId } from '@/types/models';
 
 /**
  * Placeholder so the app stays bootable while the teacher-era screens are gone.
@@ -33,6 +32,7 @@ export default function ParentHomeScreen(): React.JSX.Element {
   const isSubmitting = useAppSelector(state => state.auth.isSubmitting);
   const authError = useAppSelector(state => state.auth.error);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
+  const [avatarId, setAvatarId] = useState<AvatarId>(DEFAULT_AVATAR_ID);
 
   const handleRequestSignOut = useCallback((): void => {
     setIsConfirmVisible(true);
@@ -57,10 +57,8 @@ export default function ParentHomeScreen(): React.JSX.Element {
         <Text style={styles.title}>{strings.app.name}</Text>
         <Text style={styles.subtitle}>{strings.app.welcomeSubtitle}</Text>
 
-        <View style={styles.avatarRow}>
-          {PREVIEW_AVATARS.map(id => (
-            <Avatar key={id} avatarId={id} size={56} />
-          ))}
+        <View style={styles.picker}>
+          <AvatarPicker value={avatarId} onChange={setAvatarId} />
         </View>
 
         <Text style={styles.caption}>
@@ -115,9 +113,8 @@ const styles = StyleSheet.create({
     color: colors.text,
     textAlign: 'center',
   },
-  avatarRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
+  picker: {
+    alignSelf: 'stretch',
     marginTop: spacing.md,
   },
   caption: {

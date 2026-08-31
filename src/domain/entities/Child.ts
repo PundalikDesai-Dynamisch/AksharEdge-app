@@ -1,4 +1,4 @@
-import type { ChildStatus, Gender, SchoolingLevel } from '@/types/models';
+import type { AvatarId, ChildStatus, Gender, SchoolingLevel } from '@/types/models';
 
 import type { GeoPoint } from './Parent';
 
@@ -11,8 +11,12 @@ export interface Child {
   readonly childId: string;
   readonly parentId: string;
   readonly name: string;
-  /** Key into the illustrated avatar set — never a photo URL. design.md §7. */
-  readonly avatarId: string;
+  /**
+   * Key into the illustrated avatar set — never a photo URL. design.md §7.
+   * Typed as a closed union rather than `string` so the rule is enforced by the compiler
+   * instead of by this comment.
+   */
+  readonly avatarId: AvatarId;
   readonly ageYears: number;
   readonly schooling: SchoolingLevel;
   readonly gender: Gender;
