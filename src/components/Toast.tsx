@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { TOAST_DURATION_MS } from '@/constants/config';
-import { colors, IconName, radii, spacing, typography } from '@theme';
+import { colors, IconName, radii, shadows, spacing, typography } from '@theme';
 
 import type { ColorToken, IconGlyph } from '@theme';
 import type { ToastKind } from '@/types/models';
@@ -91,9 +91,10 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.lg,
-    borderRadius: radii.md,
-    borderWidth: 1,
-    borderColor: colors.border,
+    // A floating surface, so it reads as elevated rather than outlined — design.md §5 asks for
+    // soft shadows and warns off harsh borders. The tinted fill still separates it from content.
+    ...shadows.md,
+    borderRadius: radii.lg,
   },
   message: {
     ...typography.body,

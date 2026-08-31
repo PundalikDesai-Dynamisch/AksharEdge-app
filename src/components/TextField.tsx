@@ -47,11 +47,25 @@ export function TextField({
   autoComplete,
 }: TextFieldProps): React.JSX.Element {
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const hasError = error !== undefined && error.length > 0;
 
   const handleToggleReveal = useCallback(() => {
     setIsRevealed(current => !current);
   }, []);
+
+  const handleFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
+
+  /**
+   * Owns the focus flag AND forwards to the caller — screens hang validation off `onBlur`, so
+   * swallowing it here would silently disable every validate-on-blur form in the app.
+   */
+  const handleBlur = useCallback(() => {
+    setIsFocused(false);
+    onBlur?.();
+  }, [onBlur]);
 
   return (
     <View style={styles.container}>
@@ -60,6 +74,7 @@ export function TextField({
       <View
         style={[
           styles.inputRow,
+          isFocused && styles.inputRowFocused,
           hasError && styles.inputRowError,
           !editable && styles.inputRowDisabled,
           multiline && styles.inputRowMultiline,
@@ -69,7 +84,8 @@ export function TextField({
           style={[styles.input, multiline && styles.inputMultiline]}
           value={value}
           onChangeText={onChangeText}
-          onBlur={onBlur}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           secureTextEntry={secure && !isRevealed}
           keyboardType={keyboardType}
           autoCapitalize={autoCapitalize}
@@ -135,8 +151,21 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     minHeight: MIN_TOUCH_TARGET * 2,
   },
+  /**
+   * design.md §8.5 requires a clear focused state, and §18 forbids communicating state by colour
+   * alone — so focus changes the border WIDTH as well as its colour. `primaryDeep` rather than
+   * `primary`: coral on white measures 2.83:1 and misses the 3:1 floor for a non-text indicator.
+   *
+   * The "filled" state §8.5 also lists needs no style of its own: a filled field already renders
+   * its value in `colors.text` where an empty one renders a placeholder in `colors.textMuted`.
+   */
+  inputRowFocused: {
+    borderColor: colors.primaryDeep,
+    borderWidth: 2,
+  },
   inputRowError: {
     borderColor: colors.danger,
+    borderWidth: 2,
   },
   inputRowDisabled: {
     backgroundColor: colors.background,

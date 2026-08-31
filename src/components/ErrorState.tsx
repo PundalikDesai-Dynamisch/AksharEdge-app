@@ -13,6 +13,8 @@ interface ErrorStateProps {
   onRetry: () => void;
   title?: string;
   retryLabel?: string;
+  /** Illustration slot, per design.md §8.6 — see the note on EmptyState. */
+  illustration?: React.ReactNode;
 }
 
 export function ErrorState({
@@ -20,12 +22,18 @@ export function ErrorState({
   onRetry,
   title = strings.common.somethingWentWrong,
   retryLabel = strings.common.tryAgain,
+  illustration,
 }: ErrorStateProps): React.JSX.Element {
   return (
     <View style={styles.container} accessibilityLiveRegion="polite">
-      <View style={styles.iconCircle}>
-        <Icon name={IconName.alertCircle} size={28} color="danger" />
-      </View>
+      {illustration !== undefined ? (
+        <View style={styles.illustration}>{illustration}</View>
+      ) : (
+        <View style={styles.iconCircle}>
+          {/* `dangerDeep` lifts the icon from 3.98:1 to 4.52:1 on dangerMuted. */}
+          <Icon name={IconName.alertCircle} size={28} color="dangerDeep" />
+        </View>
+      )}
 
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
@@ -48,6 +56,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.xxl,
+  },
+  illustration: {
+    marginBottom: spacing.lg,
   },
   iconCircle: {
     width: spacing.xxxl,
