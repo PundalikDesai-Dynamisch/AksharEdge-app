@@ -1,4 +1,5 @@
 export { AppHeader } from './AppHeader';
+export { Avatar } from './Avatar';
 export { Button } from './Button';
 export { Card } from './Card';
 export { Chip } from './Chip';
@@ -7,6 +8,7 @@ export { EmptyState } from './EmptyState';
 export { ErrorState } from './ErrorState';
 export { Icon } from './Icon';
 export { Loader } from './Loader';
+export { Mascot } from './Mascot';
 export { OfflineBanner } from './OfflineBanner';
 export { Screen } from './Screen';
 export { SearchBar } from './SearchBar';

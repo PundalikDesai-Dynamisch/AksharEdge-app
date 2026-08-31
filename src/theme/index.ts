@@ -1,5 +1,7 @@
 export { colors } from './colors';
 export type { ColorToken } from './colors';
+export { fonts } from './fonts';
+export type { FontToken } from './fonts';
 export { spacing } from './spacing';
 export type { SpacingToken } from './spacing';
 export { radii } from './radii';

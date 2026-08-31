@@ -12,7 +12,8 @@ const sharedHeader = {
   headerTintColor: colors.text,
   headerTitleStyle: {
     fontSize: typography.title.fontSize,
-    fontWeight: typography.title.fontWeight,
+    // Weight comes from the family, not fontWeight — see theme/fonts.ts.
+    fontFamily: typography.title.fontFamily,
   },
 } as const;
 

@@ -1,24 +1,43 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Screen } from '@components';
+import { AVATAR_IDS } from '@assets/registry';
+import { Avatar, Mascot, Screen } from '@components';
 import { strings } from '@/constants/strings';
 
 import { colors, spacing, typography } from '@theme';
 
+/** Enough avatars to confirm the registry resolves more than one file. */
+const PREVIEW_AVATARS = AVATAR_IDS.slice(0, 4);
+
 /**
- * Placeholder so the app stays bootable while the teacher-era screens are removed.
+ * Placeholder so the app stays bootable while the teacher-era screens are gone.
  *
- * Phase 2 (`phase-2/parent-home`) replaces this entirely with the real two-state Parent Home —
- * the onboarding carousel when the parent has no children, the child list when they do — fed by
- * a live Firestore subscription. Nothing here is meant to survive that.
+ * It doubles as the visual smoke test for the asset pipeline: if the heading is not in Baloo 2
+ * the fonts are not registered, and if the mascot or avatars are missing then react-native-svg
+ * is not linked. Both failures are silent otherwise — a font falls back to the system face and
+ * an unrendered SVG just leaves a gap.
+ *
+ * Phase 2 (`phase-2/parent-home`) replaces this entirely with the real two-state Parent Home.
  */
 export default function ParentHomeScreen(): React.JSX.Element {
   return (
-    <Screen>
+    <Screen scroll>
       <View style={styles.body}>
+        <Mascot pose="waving" size={140} />
+
         <Text style={styles.title}>{strings.app.name}</Text>
         <Text style={styles.subtitle}>{strings.app.welcomeSubtitle}</Text>
+
+        <View style={styles.avatarRow}>
+          {PREVIEW_AVATARS.map(id => (
+            <Avatar key={id} avatarId={id} size={56} />
+          ))}
+        </View>
+
+        <Text style={styles.caption}>
+          Heading in Baloo 2, body in Nunito, artwork through the asset registry.
+        </Text>
       </View>
     </Screen>
   );
@@ -29,14 +48,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing.sm,
+    gap: spacing.md,
+    paddingVertical: spacing.xl,
   },
   title: {
     ...typography.displayLarge,
-    color: colors.primary,
+    color: colors.primaryDeep,
   },
   subtitle: {
-    ...typography.bodyMuted,
+    ...typography.body,
+    color: colors.text,
     textAlign: 'center',
+  },
+  avatarRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginTop: spacing.md,
+  },
+  caption: {
+    ...typography.caption,
+    textAlign: 'center',
+    marginTop: spacing.sm,
   },
 });
