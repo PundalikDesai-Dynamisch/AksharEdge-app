@@ -1,12 +1,13 @@
 /**
- * All teacher-facing copy. Centralised so tone stays consistent with doc 07 §16.4 —
+ * All user-facing copy. Centralised so tone stays consistent —
  * sentence case, no jargon, every error says what happened and what to do next.
  * Later phases add their own sections here rather than inlining text in a screen.
  */
 export const strings = {
   app: {
-    name: 'AksharEdge Teacher',
-    welcomeTitle: 'AksharEdge for Teachers',
+    name: 'AksharEdge',
+    welcomeTitle: 'Welcome to AksharEdge',
+    welcomeSubtitle: 'A playful way to understand how your child learns',
   },
 
   common: {
@@ -28,19 +29,10 @@ export const strings = {
   },
 
   headers: {
-    login: 'Sign In',
     register: 'Create Account',
     forgotPassword: 'Reset Password',
-    dashboard: 'Dashboard',
-    students: 'Students',
-    uploads: 'Uploads',
-    settings: 'Settings',
-    addStudent: 'Add Student',
-    editStudent: 'Edit Student',
-    profile: 'Profile',
-    about: 'About',
+    home: 'Home',
     games: 'Games',
-    review: (count: number): string => `Review (${count})`,
   },
 
   accessibility: {

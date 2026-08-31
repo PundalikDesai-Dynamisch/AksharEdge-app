@@ -1,20 +1,10 @@
 /**
  * Cross-cutting string unions. String literals rather than enums so the same values move
- * unchanged between SQLite CHECK constraints, Firestore fields, and TypeScript (doc 23 §1).
+ * unchanged between Firestore fields and TypeScript.
+ *
+ * The upload/queue/sync unions belonged to the teacher-era offline-upload product and were
+ * removed with it.
  */
-
-/**
- * The status a teacher sees for an upload. Note the asymmetry with SQLite: `upload_queue.status`
- * only ever holds 'pending' | 'uploading' | 'failed', because a successful upload leaves the
- * queue for `upload_history` (doc 11 §3). 'uploaded' therefore describes a history row.
- */
-export type UploadStatus = 'pending' | 'uploading' | 'uploaded' | 'failed';
-
-export type QueueStatus = Extract<UploadStatus, 'pending' | 'uploading' | 'failed'>;
-
-export type FileType = 'image' | 'pdf';
-
-export type CaptureSource = 'scan' | 'gallery' | 'document';
 
 export type AuthStatus = 'unknown' | 'signedOut' | 'signedIn';
 
@@ -24,4 +14,23 @@ export type Gender = 'male' | 'female' | 'other' | 'unspecified';
 
 export type ToastKind = 'success' | 'info' | 'warning' | 'error';
 
-export type SyncStatus = 'idle' | 'syncing' | 'offline';
+export type ContactMethod = 'email' | 'phone';
+
+export type SchoolingLevel = 'preK' | 'primary' | 'middle';
+
+/** Drives the status pill on Parent Home and the Play/Report tab gating. */
+export type ChildStatus = 'not_started' | 'in_progress' | 'report_ready';
+
+/** Which mission plan a child receives. Derived, never stored on the child. */
+export type AgeBand = 'early' | 'middle' | 'upper';
+
+export type AssessmentStatus = 'in_progress' | 'submitted' | 'scored' | 'failed';
+
+export type WritingStatus = 'pending' | 'uploaded' | 'failed';
+
+export type MetricUnit = 'ms' | 'count' | 'ratio';
+
+/** Deliberately not a raw score — design.md §17 forbids a scary number. */
+export type ReportStatus = 'on_track' | 'monitor' | 'recommend_followup';
+
+export type MetricBand = 'strong' | 'expected' | 'watch';

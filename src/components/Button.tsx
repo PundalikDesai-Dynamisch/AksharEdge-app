@@ -32,8 +32,8 @@ interface VariantStyle {
 
 const VARIANTS: Readonly<Record<ButtonVariant, VariantStyle>> = {
   primary: { background: 'primary', foreground: 'textInverse', border: null },
-  secondary: { background: 'primaryMuted', foreground: 'primary', border: 'primary' },
-  ghost: { background: 'surface', foreground: 'primary', border: 'border' },
+  secondary: { background: 'primaryMuted', foreground: 'primaryDeep', border: 'primary' },
+  ghost: { background: 'surface', foreground: 'primaryDeep', border: 'border' },
   destructive: { background: 'danger', foreground: 'textInverse', border: null },
 };
 
