@@ -1,4 +1,4 @@
-package com.aksharedge.teacher
+package com.aksharedge.app
 
 import android.os.Bundle
 import com.facebook.react.ReactActivity

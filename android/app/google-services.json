@@ -7,6 +7,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:656142735843:android:2c6aaa36e92eddf3c7a8d6",
+        "android_client_info": {
+          "package_name": "com.aksharedge.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656142735843-iir83qj08nrsdk78u3msm3c8pamctafn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aksharedge.app",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "656142735843-ff108a1f50mj3bqtjqkq74l3f6sc8nvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbCMB5Jx0j0qtvE0A3iQXwksFUBeLPEjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656142735843-ff108a1f50mj3bqtjqkq74l3f6sc8nvd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "656142735843-436t5uuoof4lggv7ibp5v3sjg40bvitc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aksharedge.teacher"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:656142735843:android:1521c2a6dc516054c7a8d6",
         "android_client_info": {
           "package_name": "com.aksharedge.teacher"
