@@ -26,6 +26,7 @@ module.exports = {
           '@features': './src/features',
           '@components': './src/components',
           '@services': './src/services',
+          '@data': './src/data',
           '@db': './src/database',
           '@store': './src/store',
           '@theme': './src/theme',

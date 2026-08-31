@@ -1,13 +1,13 @@
 /**
- * Layer boundaries from doc 04 §3 are enforced here rather than left as convention,
+ * Layer boundaries are enforced here rather than left as convention,
  * because an import that crosses a layer still "works" at runtime — only lint catches it.
  */
 
-const FIREBASE_MESSAGE = 'Firebase must only be imported inside src/services/firebase/.';
+const FIREBASE_MESSAGE = 'Firebase may only be imported inside src/data/firebase/ or src/services/firebase/.';
 const PRESENTATION_MESSAGE =
-  'Presentation may not reach the data layer directly (doc 04 §3). Go through a slice/thunk.';
+  'Presentation may not reach the data layer directly. Go through a slice/thunk — repositories\n   are injected as the RTK `extra` argument.';
 const DOMAIN_MESSAGE =
-  'Domain must stay pure — no React, Redux, Firebase, or I/O (doc 04 §2). It must be unit-testable with zero mocks.';
+  'Domain must stay pure — no React, Redux, Firebase, data layer, or I/O. It must be unit-testable with zero mocks.';
 
 module.exports = {
   root: true,
@@ -47,6 +47,7 @@ module.exports = {
           { pattern: '@components', group: 'internal' },
           { pattern: '@components/**', group: 'internal' },
           { pattern: '@services/**', group: 'internal' },
+          { pattern: '@data/**', group: 'internal' },
           { pattern: '@db/**', group: 'internal' },
           { pattern: '@store/**', group: 'internal' },
           { pattern: '@theme', group: 'internal' },
@@ -62,8 +63,10 @@ module.exports = {
   },
   overrides: [
     {
-      // This IS the Firebase boundary (doc 23 §8).
-      files: ['src/services/firebase/**/*.ts'],
+      // These ARE the Firebase boundary. `src/data/firebase/` holds the repositories;
+      // `src/services/firebase/` holds authService, which is a service rather than a
+      // repository and stays where it is.
+      files: ['src/data/firebase/**/*.ts', 'src/services/firebase/**/*.ts'],
       rules: { 'no-restricted-imports': 'off' },
     },
     {
@@ -91,7 +94,7 @@ module.exports = {
             patterns: [
               { group: ['@react-native-firebase/*'], message: FIREBASE_MESSAGE },
               {
-                group: ['@/repositories/*', '@/database/*', '@db/*'],
+                group: ['@data/*', '@data/**', '@/data/*', '@/data/**'],
                 message: PRESENTATION_MESSAGE,
               },
             ],
@@ -113,7 +116,10 @@ module.exports = {
               { name: 'react-native-fs', message: DOMAIN_MESSAGE },
               { name: '@op-engineering/op-sqlite', message: DOMAIN_MESSAGE },
             ],
-            patterns: [{ group: ['@react-native-firebase/*'], message: DOMAIN_MESSAGE }],
+            patterns: [
+              { group: ['@react-native-firebase/*'], message: DOMAIN_MESSAGE },
+              { group: ['@data/*', '@data/**'], message: DOMAIN_MESSAGE },
+            ],
           },
         ],
       },
