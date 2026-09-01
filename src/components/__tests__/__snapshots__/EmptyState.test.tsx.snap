@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState renders with an icon 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingHorizontal": 24,
+      "paddingVertical": 32,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FFEDE7",
+        "borderRadius": 999,
+        "height": 48,
+        "justifyContent": "center",
+        "marginBottom": 16,
+        "width": 48,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#B54C35",
+            "fontSize": 28,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 22,
+        "lineHeight": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    No children yet
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 15,
+        "lineHeight": 23,
+        "marginTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    Add a profile.
+  </Text>
+</View>
+`;

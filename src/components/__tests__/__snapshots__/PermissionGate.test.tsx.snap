@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PermissionGate differs from the camera gate only in copy 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "gap": 12,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    accessibilityRole="image"
+    height={160}
+    importantForAccessibility="no-hide-descendants"
+    width={160}
+  />
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 26,
+        "lineHeight": 34,
+        "marginTop": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    We need the camera to play!
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    The games use the camera to gently notice how your child looks at the screen while they play.
+  </Text>
+  <View
+    style={
+      {
+        "alignSelf": "stretch",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Allow Camera Access"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "borderRadius": 999,
+            "justifyContent": "center",
+            "paddingHorizontal": 24,
+          },
+          {
+            "minHeight": 56,
+          },
+          {
+            "elevation": 2,
+            "shadowColor": "#402A1A",
+            "shadowOffset": {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.06,
+            "shadowRadius": 6,
+          },
+          {
+            "backgroundColor": "#B54C35",
+            "borderColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "alignSelf": "stretch",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Nunito-SemiBold",
+                "fontSize": 17,
+                "lineHeight": 22,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          Allow Camera Access
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PermissionGate renders the request state 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "gap": 12,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    accessibilityRole="image"
+    height={160}
+    importantForAccessibility="no-hide-descendants"
+    width={160}
+  />
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 26,
+        "lineHeight": 34,
+        "marginTop": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    Where are you playing from?
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    We use your location once, to set up your child's profile. You will not need to type an address.
+  </Text>
+  <View
+    style={
+      {
+        "alignSelf": "stretch",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Allow Location Access"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "borderRadius": 999,
+            "justifyContent": "center",
+            "paddingHorizontal": 24,
+          },
+          {
+            "minHeight": 56,
+          },
+          {
+            "elevation": 2,
+            "shadowColor": "#402A1A",
+            "shadowOffset": {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.06,
+            "shadowRadius": 6,
+          },
+          {
+            "backgroundColor": "#B54C35",
+            "borderColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "alignSelf": "stretch",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Nunito-SemiBold",
+                "fontSize": 17,
+                "lineHeight": 22,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          Allow Location Access
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

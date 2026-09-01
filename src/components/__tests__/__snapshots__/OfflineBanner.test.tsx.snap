@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfflineBanner renders offline, with and without a pending count 1`] = `
+<View
+  accessibilityLiveRegion="polite"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingHorizontal": 16,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#EDE0D1",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontSize": 16,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "flexShrink": 1,
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 15,
+        "lineHeight": 23,
+      }
+    }
+  >
+    You're offline
+  </Text>
+</View>
+`;
+
+exports[`OfflineBanner renders offline, with and without a pending count 2`] = `
+<View
+  accessibilityLiveRegion="polite"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingHorizontal": 16,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#EDE0D1",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontSize": 16,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "flexShrink": 1,
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 15,
+        "lineHeight": 23,
+      }
+    }
+  >
+    You're offline — 3 uploads waiting
+  </Text>
+</View>
+`;

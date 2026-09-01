@@ -1,0 +1,2711 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RewardOverlay renders the celebration 1`] = `
+<Modal
+  animationType="fade"
+  statusBarTranslucent={true}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "rgba(51, 41, 33, 0.45)",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 24,
+      }
+    }
+  >
+    <View
+      accessibilityElementsHidden={true}
+      pointerEvents="none"
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 137.1872640379479,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 137.1872640379479,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 555.0636181490063,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 555.0636181490063,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 423.29634575162345,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 423.29634575162345,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 341.06194562446035,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 341.06194562446035,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 204.3005529067159,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 204.3005529067159,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 617.5865329460066,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 617.5865329460066,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 564.6317061655282,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 564.6317061655282,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 377.81691771033366,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 377.81691771033366,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 392.5785205718739,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 392.5785205718739,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 391.3327788386596,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 391.3327788386596,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 14.921323088856298,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 14.921323088856298,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 444.25473902811063,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 444.25473902811063,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 458.33829791808967,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 458.33829791808967,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 300.99207480270707,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 300.99207480270707,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 636.7977877362136,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 636.7977877362136,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 255.60241198945732,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 255.60241198945732,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 316.8042172223977,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 316.8042172223977,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 178.3541509812494,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 178.3541509812494,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 740.484062131145,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 740.484062131145,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 532.4867812851153,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 532.4867812851153,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 649.1667015070561,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 649.1667015070561,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 638.9696126752824,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 638.9696126752824,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 32.59196827002597,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 32.59196827002597,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 471.04581403006307,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 471.04581403006307,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 700.1422649600499,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 700.1422649600499,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 171.11384754025494,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 171.11384754025494,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 574.3888287634036,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 574.3888287634036,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 116.12497558598989,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 116.12497558598989,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 683.9229904053354,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 683.9229904053354,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 133.49539752198325,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 133.49539752198325,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 257.77848623283717,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 257.77848623283717,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 422.76114151945876,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 422.76114151945876,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 275.81382896914874,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 275.81382896914874,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 303.24112510788837,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FFD24A",
+              "left": 303.24112510788837,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 427.61520525345986,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#FF6B4A",
+              "left": 427.61520525345986,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": -0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 85.93234361433133,
+            },
+          ]
+        }
+        style={
+          [
+            {
+              "borderRadius": 4,
+              "height": 14,
+              "position": "absolute",
+              "top": -14,
+              "width": 8,
+            },
+            {
+              "backgroundColor": "#4AC8FF",
+              "left": 85.93234361433133,
+            },
+            {
+              "opacity": 1,
+              "transform": [
+                {
+                  "translateY": 0,
+                },
+                {
+                  "translateX": 0,
+                },
+                {
+                  "rotate": "0deg",
+                },
+              ],
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      accessibilityViewIsModal={true}
+      style={
+        {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 24,
+          "elevation": 8,
+          "gap": 8,
+          "padding": 24,
+          "shadowColor": "#402A1A",
+          "shadowOffset": {
+            "height": 8,
+            "width": 0,
+          },
+          "shadowOpacity": 0.13,
+          "shadowRadius": 22,
+        }
+      }
+    >
+      <View
+        accessibilityElementsHidden={true}
+        accessibilityRole="image"
+        height={96}
+        importantForAccessibility="no-hide-descendants"
+        width={96}
+      />
+      <View
+        accessibilityElementsHidden={true}
+        accessibilityRole="image"
+        height={96}
+        importantForAccessibility="no-hide-descendants"
+        width={96}
+      />
+      <Text
+        style={
+          {
+            "color": "#333333",
+            "fontFamily": "Baloo2-Bold",
+            "fontSize": 26,
+            "lineHeight": 34,
+            "marginTop": 8,
+            "textAlign": "center",
+          }
+        }
+      >
+        You did it!
+      </Text>
+      <View
+        style={
+          {
+            "alignSelf": "stretch",
+            "marginTop": 16,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Done"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": false,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "borderRadius": 999,
+                "justifyContent": "center",
+                "paddingHorizontal": 24,
+              },
+              {
+                "minHeight": 56,
+              },
+              {
+                "elevation": 2,
+                "shadowColor": "#402A1A",
+                "shadowOffset": {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.06,
+                "shadowRadius": 6,
+              },
+              {
+                "backgroundColor": "#B54C35",
+                "borderColor": "transparent",
+                "borderWidth": 0,
+              },
+              {
+                "alignSelf": "stretch",
+              },
+              false,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "gap": 8,
+              }
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontFamily": "Nunito-SemiBold",
+                    "fontSize": 17,
+                    "lineHeight": 22,
+                  },
+                  {
+                    "color": "#FFFFFF",
+                  },
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

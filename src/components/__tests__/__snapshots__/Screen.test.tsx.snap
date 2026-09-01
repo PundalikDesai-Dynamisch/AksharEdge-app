@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen renders plain, scrolling, loading and playful variants 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#FFFBF5",
+        "flex": 1,
+      },
+      {
+        "paddingBottom": 34,
+        "paddingTop": 47,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        {
+          "paddingHorizontal": 16,
+        },
+      ]
+    }
+  >
+    <Text>
+      Body
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Screen renders plain, scrolling, loading and playful variants 2`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#FFFBF5",
+        "flex": 1,
+      },
+      {
+        "paddingBottom": 34,
+        "paddingTop": 47,
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      [
+        {
+          "flexGrow": 1,
+          "paddingVertical": 16,
+        },
+        {
+          "paddingHorizontal": 16,
+        },
+      ]
+    }
+    keyboardShouldPersistTaps="handled"
+  >
+    <View>
+      <Text>
+        Body
+      </Text>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Screen renders plain, scrolling, loading and playful variants 3`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#FFFBF5",
+        "flex": 1,
+      },
+      {
+        "paddingBottom": 34,
+        "paddingTop": 47,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityRole="progressbar"
+      style={
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "padding": 16,
+        }
+      }
+    >
+      <ActivityIndicator
+        color="#B54C35"
+        size="large"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Screen renders plain, scrolling, loading and playful variants 4`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#FFFBF5",
+        "flex": 1,
+      },
+      {
+        "paddingBottom": 34,
+        "paddingTop": 47,
+      },
+    ]
+  }
+>
+  <View
+    pointerEvents="none"
+    style={
+      {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "position": "absolute",
+          },
+          {
+            "backgroundColor": "#FFF6DC",
+            "height": 220,
+            "right": -73.33333333333333,
+            "top": -110,
+            "width": 220,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "position": "absolute",
+          },
+          {
+            "backgroundColor": "#E4F5FE",
+            "bottom": -130,
+            "height": 260,
+            "left": -86.66666666666667,
+            "width": 260,
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        {
+          "paddingHorizontal": 16,
+        },
+      ]
+    }
+  >
+    <Text>
+      Body
+    </Text>
+  </View>
+</View>
+`;

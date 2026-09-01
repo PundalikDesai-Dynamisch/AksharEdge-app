@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip renders selected and with an icon 1`] = `
+<View
+  accessibilityLabel="Chosen"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": true,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  hitSlop={8}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderColor": "#EDE0D1",
+          "borderRadius": 999,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "gap": 4,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        },
+        {
+          "backgroundColor": "#B54C35",
+        },
+      ]
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "color": "#6B6058",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#FFFFFF",
+          },
+        ]
+      }
+    >
+      Chosen
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Chip renders selected and with an icon 2`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#E4F5FE",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#0C76A5",
+          "fontSize": 14,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#0C76A5",
+        },
+      ]
+    }
+  >
+    Waiting
+  </Text>
+</View>
+`;
+
+exports[`Chip renders the danger tone 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#FDECEC",
+      },
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#C33D41",
+        },
+      ]
+    }
+  >
+    Status
+  </Text>
+</View>
+`;
+
+exports[`Chip renders the info tone 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#E4F5FE",
+      },
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#0C76A5",
+        },
+      ]
+    }
+  >
+    Status
+  </Text>
+</View>
+`;
+
+exports[`Chip renders the neutral tone 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#6B6058",
+        },
+      ]
+    }
+  >
+    Status
+  </Text>
+</View>
+`;
+
+exports[`Chip renders the success tone 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#E7F9ED",
+      },
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#377D47",
+        },
+      ]
+    }
+  >
+    Status
+  </Text>
+</View>
+`;
+
+exports[`Chip renders the warning tone 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#FDF0DF",
+      },
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#99621F",
+        },
+      ]
+    }
+  >
+    Status
+  </Text>
+</View>
+`;

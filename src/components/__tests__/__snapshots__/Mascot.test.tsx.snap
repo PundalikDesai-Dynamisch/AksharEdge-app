@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mascot renders the camera pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the cheering pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the encouraging pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the mapPin pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the pencil pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the thinking pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;
+
+exports[`Mascot renders the waving pose 1`] = `
+<View
+  accessibilityElementsHidden={true}
+  accessibilityRole="image"
+  height={96}
+  importantForAccessibility="no-hide-descendants"
+  width={96}
+/>
+`;

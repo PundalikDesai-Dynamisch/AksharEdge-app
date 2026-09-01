@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MissionHeader renders the mission path with a pause control 1`] = `
+<View
+  style={
+    {
+      "alignItems": "flex-start",
+      "flexDirection": "row",
+      "gap": 12,
+      "paddingVertical": 12,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Step 0 of 2 complete"
+      accessibilityRole="progressbar"
+      accessibilityValue={
+        {
+          "max": 2,
+          "min": 0,
+          "now": 0,
+        }
+      }
+      style={
+        {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "gap": 4,
+              "minHeight": 56,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#EDE0D1",
+                  "borderWidth": 2,
+                  "justifyContent": "center",
+                },
+                {
+                  "borderRadius": 20,
+                  "height": 40,
+                  "width": 40,
+                },
+                false,
+                {
+                  "backgroundColor": "#FFEDE7",
+                  "borderColor": "#B54C35",
+                  "borderRadius": 999,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#6B6058",
+                    "fontFamily": "Nunito-Regular",
+                    "fontSize": 13,
+                    "lineHeight": 18,
+                  },
+                  {
+                    "color": "#B54C35",
+                    "fontFamily": "Baloo2-SemiBold",
+                    "fontSize": 18,
+                    "lineHeight": 26,
+                  },
+                ]
+              }
+            >
+              1
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "color": "#6B6058",
+                  "fontFamily": "Nunito-Regular",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#B54C35",
+                },
+              ]
+            }
+          >
+            One
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#EDE0D1",
+                "flex": 1,
+                "height": 2,
+                "marginBottom": 16,
+              },
+              false,
+            ]
+          }
+        />
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "gap": 4,
+              "minHeight": 56,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#EDE0D1",
+                  "borderWidth": 2,
+                  "justifyContent": "center",
+                },
+                {
+                  "borderRadius": 14,
+                  "height": 28,
+                  "width": 28,
+                },
+                false,
+                false,
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#6B6058",
+                    "fontFamily": "Nunito-Regular",
+                    "fontSize": 13,
+                    "lineHeight": 18,
+                  },
+                  false,
+                ]
+              }
+            >
+              2
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "color": "#6B6058",
+                  "fontFamily": "Nunito-Regular",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                },
+                false,
+              ]
+            }
+          >
+            Two
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Pause and exit"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={12}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 0.5,
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#333333",
+            "fontSize": 20,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;

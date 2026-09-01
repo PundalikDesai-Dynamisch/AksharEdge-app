@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon renders a glyph 1`] = `
+<Text
+  allowFontScaling={false}
+  selectable={false}
+  style={
+    [
+      {
+        "color": "#333333",
+        "fontSize": 20,
+      },
+      undefined,
+      {
+        "fontFamily": "Feather",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
+>
+  
+</Text>
+`;

@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 import { DEFAULT_AVATAR_ID } from '@assets/registry';
 import { AvatarPicker, Button, ConfirmDialog, Mascot, Screen } from '@components';
 import { strings } from '@/constants/strings';
@@ -33,6 +35,11 @@ export default function ParentHomeScreen(): React.JSX.Element {
   const authError = useAppSelector(state => state.auth.error);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const [avatarId, setAvatarId] = useState<AvatarId>(DEFAULT_AVATAR_ID);
+  const navigation = useNavigation();
+
+  const handleOpenGallery = useCallback((): void => {
+    navigation.navigate('Gallery');
+  }, [navigation]);
 
   const handleRequestSignOut = useCallback((): void => {
     setIsConfirmVisible(true);
@@ -69,6 +76,19 @@ export default function ParentHomeScreen(): React.JSX.Element {
           <Text style={styles.error} accessibilityLiveRegion="polite">
             {authError.userMessage}
           </Text>
+        )}
+
+        {/* Phase 1's component gallery. __DEV__-guarded on both sides — the route itself is only
+            registered in AppNavigator under the same flag — because a dev-only screen with no
+            dev-only way in is a screen nobody opens. */}
+        {__DEV__ && (
+          <Button
+            label="Component gallery"
+            onPress={handleOpenGallery}
+            variant="secondary"
+            fullWidth={false}
+            style={styles.signOut}
+          />
         )}
 
         <Button

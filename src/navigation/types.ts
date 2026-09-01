@@ -32,6 +32,12 @@ export type MainTabsParamList = {
 export type AppStackParamList = {
   MainTabs: NavigatorScreenParams<MainTabsParamList>;
   UnityGame: { gameId: string };
+  /**
+   * The dev-only component gallery. Typed unconditionally because a param list cannot be
+   * conditional, but the screen is only registered when __DEV__ — navigating to it in a release
+   * build is a no-op rather than a crash.
+   */
+  Gallery: undefined;
 };
 
 export type RootScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<

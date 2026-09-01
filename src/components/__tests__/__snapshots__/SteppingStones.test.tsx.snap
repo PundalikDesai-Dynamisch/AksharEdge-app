@@ -1,0 +1,756 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SteppingStones renders a 3-stone roadmap 1`] = `
+<View
+  accessibilityLabel="Step 1 of 3 complete"
+  accessibilityRole="progressbar"
+  accessibilityValue={
+    {
+      "max": 3,
+      "min": 0,
+      "now": 1,
+    }
+  }
+  style={
+    {
+      "alignItems": "flex-start",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            {
+              "backgroundColor": "#377D47",
+              "borderColor": "#377D47",
+            },
+            false,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFFFFF",
+                "fontSize": 16,
+              },
+              undefined,
+              {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Play
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          false,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 20,
+              "height": 40,
+              "width": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#FFEDE7",
+              "borderColor": "#B54C35",
+              "borderRadius": 999,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#6B6058",
+                "fontFamily": "Nunito-Regular",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#B54C35",
+                "fontFamily": "Baloo2-SemiBold",
+                "fontSize": 18,
+                "lineHeight": 26,
+              },
+            ]
+          }
+        >
+          2
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            {
+              "color": "#B54C35",
+            },
+          ]
+        }
+      >
+        Writing
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          false,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            false,
+            false,
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#6B6058",
+                "fontFamily": "Nunito-Regular",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              false,
+            ]
+          }
+        >
+          3
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Celebrate
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`SteppingStones renders a 5-step wizard 1`] = `
+<View
+  accessibilityLabel="Step 2 of 5 complete"
+  accessibilityRole="progressbar"
+  accessibilityValue={
+    {
+      "max": 5,
+      "min": 0,
+      "now": 2,
+    }
+  }
+  style={
+    {
+      "alignItems": "flex-start",
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            {
+              "backgroundColor": "#377D47",
+              "borderColor": "#377D47",
+            },
+            false,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFFFFF",
+                "fontSize": 16,
+              },
+              undefined,
+              {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Child
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          {
+            "backgroundColor": "#377D47",
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            {
+              "backgroundColor": "#377D47",
+              "borderColor": "#377D47",
+            },
+            false,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#FFFFFF",
+                "fontSize": 16,
+              },
+              undefined,
+              {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              undefined,
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Details
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          false,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 20,
+              "height": 40,
+              "width": 40,
+            },
+            false,
+            {
+              "backgroundColor": "#FFEDE7",
+              "borderColor": "#B54C35",
+              "borderRadius": 999,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#6B6058",
+                "fontFamily": "Nunito-Regular",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#B54C35",
+                "fontFamily": "Baloo2-SemiBold",
+                "fontSize": 18,
+                "lineHeight": 26,
+              },
+            ]
+          }
+        >
+          3
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            {
+              "color": "#B54C35",
+            },
+          ]
+        }
+      >
+        Location
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          false,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            false,
+            false,
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#6B6058",
+                "fontFamily": "Nunito-Regular",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              false,
+            ]
+          }
+        >
+          4
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Camera
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#EDE0D1",
+            "flex": 1,
+            "height": 2,
+            "marginBottom": 16,
+          },
+          false,
+        ]
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "gap": 4,
+          "minHeight": 56,
+        }
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#EDE0D1",
+              "borderWidth": 2,
+              "justifyContent": "center",
+            },
+            {
+              "borderRadius": 14,
+              "height": 28,
+              "width": 28,
+            },
+            false,
+            false,
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#6B6058",
+                "fontFamily": "Nunito-Regular",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              false,
+            ]
+          }
+        >
+          5
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#6B6058",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 13,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            false,
+          ]
+        }
+      >
+        Confirm
+      </Text>
+    </View>
+  </View>
+</View>
+`;
