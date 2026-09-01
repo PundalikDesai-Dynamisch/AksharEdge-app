@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // We import these screens once they are created. Using a placeholder for now to satisfy TS.
 import { ChildIdentityScreen } from '@features/wizard/screens/ChildIdentityScreen';
 import { ChildDetailsScreen } from '@features/wizard/screens/ChildDetailsScreen';
+import { PermissionStepScreen } from '@features/wizard/screens/PermissionStepScreen';
 import { ConfirmationScreen } from '@features/wizard/screens/ConfirmationScreen';
 import { AssessmentPlaceholderScreen } from '@features/wizard/screens/AssessmentPlaceholderScreen';
 
@@ -28,6 +29,11 @@ export function WizardNavigator({ route }: WizardNavigatorProps): React.JSX.Elem
         initialParams={{ childId }}
       />
       <Stack.Screen name="ChildDetails" component={ChildDetailsScreen} />
+      <Stack.Screen 
+        name="PermissionStep" 
+        component={PermissionStepScreen} 
+        options={{ gestureEnabled: false }}
+      />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
       <Stack.Screen name="AssessmentPlaceholder" component={AssessmentPlaceholderScreen} />
     </Stack.Navigator>

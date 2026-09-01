@@ -17,6 +17,7 @@ export type AuthStackParamList = {
 export type WizardStackParamList = {
   ChildIdentity: { childId?: string };
   ChildDetails: undefined;
+  PermissionStep: { kind: 'location' | 'camera' };
   Confirmation: undefined;
   AssessmentPlaceholder: undefined;
 };
