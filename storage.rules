@@ -3,17 +3,35 @@ service firebase.storage {
   match /b/{bucket}/o {
 
     function isSignedIn() { return request.auth != null; }
-    function isOwner(teacherId) {
-      return isSignedIn() && request.auth.uid == teacherId;
+    function isOwner(parentId) {
+      return isSignedIn() && request.auth.uid == parentId;
     }
 
-    match /teachers/{teacherId}/students/{studentId}/{fileName} {
-      allow read: if isOwner(teacherId);
-      allow write: if isOwner(teacherId)
-                   && request.resource.size < 25 * 1024 * 1024
-                   && (request.resource.contentType.matches('image/.*')
-                       || request.resource.contentType == 'application/pdf');
-      allow delete: if false; // the MVP client never deletes remote objects
+    /**
+     * The handwriting photo, scoped under its owning parent.
+     *
+     * This path mirrors `firebaseMediaRepository.buildWritingPath` exactly, including the
+     * `assessments/{assessmentId}` segment — a writing sample belongs to one screening run, and
+     * a retake in a later run must not collide with an earlier one. If that function changes,
+     * this match has to change with it or every upload starts failing with
+     * `storage/unauthorized`.
+     */
+    match /parents/{parentId}/children/{childId}/assessments/{assessmentId}/writing/{fileName} {
+      allow read: if isOwner(parentId);
+
+      /**
+       * Spelled out as `create, update` rather than `write` on purpose: in Storage rules `write`
+       * covers create, update AND delete, and because rules are OR-ed, a separate
+       * `allow delete: if false` does not take that back. Granting `write` here would have
+       * silently granted the client the ability to destroy a screening artefact.
+       */
+      allow create, update: if isOwner(parentId)
+                            && request.resource.size < 25 * 1024 * 1024
+                            // A handwriting sample is a photo. PDFs were allowed in the
+                            // teacher-era rules and are deliberately not any more.
+                            && request.resource.contentType.matches('image/.*');
+
+      // No `delete` grant of any kind: the client never removes remote objects.
     }
 
     // Deny everything else explicitly.
