@@ -1,12 +1,22 @@
 $RNFirebaseAsStaticFramework = true
 $RNFirebaseDisableSPM = true
 
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+
+setup_permissions([
+  'Camera',
+  'LocationWhenInUse',
+])
 
 # Pinned explicitly rather than min_ios_version_supported so the Podfile and the Xcode
 # project's Minimum Deployment cannot silently diverge (doc 21 §2).
@@ -28,13 +38,6 @@ target 'DyslexiaApp' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
-  # Phase 3, Branch 21: Only the two permission handlers the app actually uses.
-  # Adding every handler bloats the binary and can trigger App Store questions.
-  permissions_path = '../node_modules/react-native-permissions/ios'
-  pod 'RNPermissions', :path => permissions_path
-  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
-  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
 
   post_install do |installer|
     react_native_post_install(
