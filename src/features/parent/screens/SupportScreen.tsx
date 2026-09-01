@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, LayoutAnimation, UIManager, Platform } from 'react-native';
+
 import { useNavigation, useRoute } from '@react-navigation/native';
+
 import { AppHeader, Card, Icon, Screen } from '@components';
 import { colors, spacing, typography, radii, IconName } from '@theme';
 import type { ParentScreenProps } from '@/navigation/types';

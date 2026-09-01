@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
 import { Button, Card, Icon } from '@components';
 import { colors, spacing, typography, IconName } from '@theme';
 import type { ParentScreenProps } from '@/navigation/types';

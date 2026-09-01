@@ -14,6 +14,13 @@ export type AuthStackParamList = {
   ForgotPassword: { email?: string } | undefined;
 };
 
+export type WizardStackParamList = {
+  ChildIdentity: { childId?: string };
+  ChildDetails: undefined;
+  Confirmation: undefined;
+  AssessmentPlaceholder: undefined;
+};
+
 export type ParentStackParamList = {
   ParentHome: undefined;
   AllChildren: undefined;
@@ -42,6 +49,10 @@ export type AuthScreenProps<T extends keyof AuthStackParamList> = NativeStackScr
 >;
 export type ParentScreenProps<T extends keyof ParentStackParamList> = NativeStackScreenProps<
   ParentStackParamList,
+  T
+>;
+export type WizardScreenProps<T extends keyof WizardStackParamList> = NativeStackScreenProps<
+  WizardStackParamList,
   T
 >;
 

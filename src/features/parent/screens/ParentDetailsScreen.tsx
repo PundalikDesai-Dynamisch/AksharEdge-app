@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Button, Screen, TextField, Card } from '@components';
 import { updateParentThunk } from '@features/parent/parent.thunks';

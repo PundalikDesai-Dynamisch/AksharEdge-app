@@ -2,9 +2,10 @@ import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { ParentNavigator } from './ParentNavigator';
 import { UnityGameScreen } from '@features/games/screens/UnityGameScreen';
 import GalleryScreen from '@features/dev/screens/GalleryScreen';
+
+import { ParentNavigator } from './ParentNavigator';
 
 import type { AppStackParamList } from './types';
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Avatar, Button, ConfirmDialog, Icon, Screen, StatusPill } from '@components';
 import { softDeleteChildThunk } from '@features/parent/parent.thunks';

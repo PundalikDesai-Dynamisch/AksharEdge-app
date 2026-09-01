@@ -19,6 +19,7 @@ import { AppState } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 
 import type { PermissionStatus } from '@/types/models';
+
 import type { PermissionKind } from './permissionService';
 
 import { permissionService } from './permissionService';

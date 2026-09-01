@@ -17,12 +17,14 @@ export const IconName = {
   search: 'search',
   settings: 'settings',
   chevronRight: 'chevron-right',
+  chevronLeft: 'chevron-left',
 
   // Beyond doc 18 §7's starter list, needed by the shared components in doc 18 §3.
   x: 'x',
   eye: 'eye',
   eyeOff: 'eye-off',
   plus: 'plus',
+  minus: 'minus',
   users: 'users',
   home: 'home',
   refresh: 'refresh-cw',
@@ -42,6 +44,7 @@ export const IconName = {
   barChart: 'bar-chart-2',
   helpCircle: 'help-circle',
   arrowLeft: 'arrow-left',
+  arrowRight: 'arrow-right',
 } as const;
 
 export type IconKey = keyof typeof IconName;

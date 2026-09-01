@@ -53,6 +53,12 @@ const authSlice = createSlice({
     clearAuthError(state): void {
       state.error = null;
     },
+
+    incrementChildCount(state): void {
+      if (state.parent) {
+        state.parent.childCount += 1;
+      }
+    },
   },
   extraReducers: (builder) => {
     const thunks = [registerThunk, signInThunk, signInWithGoogleThunk, sendPasswordResetThunk, signOutThunk];
@@ -75,7 +81,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setAuthState, clearAuthError } = authSlice.actions;
+export const { setAuthState, clearAuthError, incrementChildCount } = authSlice.actions;
 export const authReducer = authSlice.reducer;
 
 /**
