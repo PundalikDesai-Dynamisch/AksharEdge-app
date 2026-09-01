@@ -33,6 +33,24 @@ export const strings = {
     signOutTitle: 'Sign out?',
     signOutMessage: "You'll need to sign in again to get back to your children's profiles.",
     signOutCancel: 'Stay signed in',
+    
+    // Subtitles
+    loginSubtitle: 'Sign in to your parent account',
+    registerSubtitle: 'Sign up to manage your children',
+    forgotPasswordSubtitle: 'Enter your email to reset your password',
+    
+    // Placeholders
+    emailPlaceholder: 'parent@email.com',
+    namePlaceholder: 'Priya Sharma',
+    passwordPlaceholder: 'At least 8 characters',
+    confirmPasswordPlaceholder: 'Retype your password',
+    locationPlaceholder: 'e.g. Mumbai',
+    
+    // Validation
+    requiredFields: 'Please fill in all required fields.',
+    passwordsDoNotMatch: 'Passwords do not match.',
+    invalidEmail: 'Please enter a valid email address.',
+    passwordTooShort: 'Password must be at least 8 characters.',
   },
 
   /**

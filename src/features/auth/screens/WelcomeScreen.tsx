@@ -40,6 +40,13 @@ export default function WelcomeScreen({
       <View style={styles.actions}>
         {error && <Text style={styles.errorBanner}>{error.userMessage}</Text>}
 
+        {/* 
+          Google Sign-In Button
+          This button is deliberately hand-rolled instead of using the standard <Button> component.
+          Google has strict brand guidelines for sign-in buttons (specific shadow, border, 'G' logo styling) 
+          that would pollute our core Button component if forced through its variant table. 
+          Do not replace this with <Button>.
+        */}
         <TouchableOpacity 
           style={styles.googleButton}
           onPress={handleGoogleLogin}

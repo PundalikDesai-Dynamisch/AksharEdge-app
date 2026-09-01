@@ -25,7 +25,7 @@ interface TextFieldProps {
   maxLength?: number;
   editable?: boolean;
   placeholder?: string;
-  autoComplete?: 'email' | 'password' | 'name' | 'off';
+  autoComplete?: 'email' | 'password' | 'name' | 'tel' | 'off';
 }
 
 export function TextField({

@@ -7,6 +7,7 @@ import { colors, spacing, typography, radii, IconName } from '@theme';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { sendPasswordResetThunk } from '@/features/auth/auth.thunks';
 import { clearAuthError } from '@/features/auth/auth.slice';
+import { strings } from '@/constants/strings';
 
 import type { AuthScreenProps } from '@/navigation/types';
 
@@ -16,16 +17,16 @@ export default function ForgotPasswordScreen({ navigation }: AuthScreenProps<'Fo
 
   const [email, setEmail] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-  const [validationError, setValidationError] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleReset = async (): Promise<void> => {
     dispatch(clearAuthError());
-    setValidationError('');
     
     if (!email) {
-      setValidationError('Please enter your email address.');
+      setErrors({ email: strings.auth.requiredFields });
       return;
     }
+    setErrors({});
     
     const result = await dispatch(sendPasswordResetThunk(email));
     if (sendPasswordResetThunk.fulfilled.match(result)) {
@@ -55,11 +56,10 @@ export default function ForgotPasswordScreen({ navigation }: AuthScreenProps<'Fo
   return (
     <Screen>
       <View style={styles.body}>
-        <Text style={styles.title}>Reset Password</Text>
-        <Text style={styles.subtitle}>Enter your email and we'll send you a reset link.</Text>
+        <Text style={styles.title}>{strings.headers.forgotPassword}</Text>
+        <Text style={styles.subtitle}>{strings.auth.forgotPasswordSubtitle}</Text>
 
         {error && <Text style={styles.errorBanner}>{error.userMessage}</Text>}
-        {validationError ? <Text style={styles.errorBanner}>{validationError}</Text> : null}
 
         <TextField
           label="Email Address"
@@ -68,7 +68,8 @@ export default function ForgotPasswordScreen({ navigation }: AuthScreenProps<'Fo
           keyboardType="email-address"
           autoCapitalize="none"
           autoComplete="email"
-          placeholder="parent@email.com"
+          placeholder={strings.auth.emailPlaceholder}
+          error={errors.email}
         />
 
         <Button 
