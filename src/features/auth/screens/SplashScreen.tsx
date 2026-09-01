@@ -6,21 +6,24 @@ import { strings } from '@/constants/strings';
 import { setAuthState } from '@features/auth/auth.slice';
 import { useAppDispatch } from '@store/hooks';
 import { colors, spacing, typography } from '@theme';
+import { logger } from '@/utils/logger';
 
 /**
  * Holds the UI while bootstrap.ts runs and decides the first stack (doc 07 §1).
  *
  * From Phase 1 on, the real `onAuthStateChanged` listener in bootstrap.ts transitions auth
  * status. The 2-second fallback below is a safety net — if bootstrap hasn't fired by then,
- * drop the teacher to the auth flow rather than stranding them on the splash screen forever.
+ * drop the parent to the auth flow rather than stranding them on the splash screen forever.
  */
 export default function SplashScreen(): React.JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch(setAuthState({ status: 'signedOut', teacher: null }));
-    }, 2000);
+      // If we hit this, bootstrap failed to fire onAuthStateChanged completely.
+      logger.warn('Splash screen timeout fired (10s) — auth listener failed to resolve.');
+      dispatch(setAuthState({ status: 'signedOut', parent: null }));
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [dispatch]);

@@ -1,7 +1,7 @@
 /**
  * The only place `console.*` may be called (doc 23 §5). `debug`/`info` are no-ops in release
  * so development tracing never ships, while `warn`/`error` always run — a silenced error in
- * production is how a "silent failure" (doc 01 §1) reaches a teacher.
+ * production is how a "silent failure" (doc 01 §1) reaches a user.
  */
 
 type LogContext = Record<string, unknown>;

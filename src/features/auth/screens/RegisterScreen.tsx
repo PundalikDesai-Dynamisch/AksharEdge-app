@@ -67,7 +67,7 @@ export default function RegisterScreen({ navigation }: AuthScreenProps<'Register
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
-            placeholder="teacher@school.com"
+            placeholder="parent@email.com"
           />
 
           <TextField

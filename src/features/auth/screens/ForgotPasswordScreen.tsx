@@ -68,7 +68,7 @@ export default function ForgotPasswordScreen({ navigation }: AuthScreenProps<'Fo
           keyboardType="email-address"
           autoCapitalize="none"
           autoComplete="email"
-          placeholder="teacher@school.com"
+          placeholder="parent@email.com"
         />
 
         <Button 

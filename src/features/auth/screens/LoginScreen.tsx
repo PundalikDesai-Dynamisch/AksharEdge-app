@@ -40,7 +40,7 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
       <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
         <View style={styles.body}>
           <Text style={styles.title}>Welcome back</Text>
-          <Text style={styles.subtitle}>Sign in to your teacher account</Text>
+          <Text style={styles.subtitle}>Sign in to your parent account</Text>
 
           {error && <Text style={styles.errorBanner}>{error.userMessage}</Text>}
           {validationError ? <Text style={styles.errorBanner}>{validationError}</Text> : null}
@@ -52,7 +52,7 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
-            placeholder="teacher@school.com"
+            placeholder="parent@email.com"
           />
 
           <TextField
