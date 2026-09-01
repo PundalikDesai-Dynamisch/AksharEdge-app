@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
+
 import { useAppSelector } from '@store/hooks';
 import { BottomTabBar, Avatar, StatusPill } from '@components';
 import { strings } from '@/constants/strings';

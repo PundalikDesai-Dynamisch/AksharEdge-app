@@ -11,7 +11,7 @@ export interface CreateParentInput {
 }
 
 export type UpdateParentInput = Partial<
-  Pick<Parent, 'fullName' | 'phone' | 'contactMethod' | 'location'>
+  Pick<Parent, 'fullName' | 'phone' | 'contactMethod' | 'location' | 'childCount'>
 >;
 
 export interface ParentRepository {

@@ -2,8 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { RootState } from '@/store';
-import type { WizardState } from './wizard.slice';
-import { restoreDraft } from './wizard.slice';
+
 
 // Scope draft keys to the parentId so we don't leak partial data across accounts
 const getDraftKey = (parentId: string): string => `wizard.draft.${parentId}`;
@@ -61,5 +60,71 @@ export const clearDraft = createAsyncThunk<
   async (parentId) => {
     const key = getDraftKey(parentId);
     await AsyncStorage.removeItem(key);
+  }
+);
+
+import { firebaseChildRepository } from '@/data/firebase/firebaseChildRepository';
+import { firebaseParentRepository } from '@/data/firebase/firebaseParentRepository';
+import { incrementChildCount } from '@/features/auth/auth.slice';
+import type { CreateChildInput } from '@/data/repositories/childRepository';
+
+import { restoreDraft } from './wizard.slice';
+import type { WizardState } from './wizard.slice';
+
+export const loadChildForEdit = createAsyncThunk<
+  void,
+  string, // childId
+  { state: RootState }
+>(
+  'wizard/loadChildForEdit',
+  async (childId, { dispatch }) => {
+    const child = await firebaseChildRepository.get(childId);
+    dispatch(restoreDraft({
+      name: child.name,
+      avatarId: child.avatarId,
+      ageYears: child.ageYears,
+      schooling: child.schooling,
+      gender: child.gender,
+    }));
+  }
+);
+
+export const createChildAndClearDraft = createAsyncThunk<
+  void,
+  void,
+  { state: RootState }
+>(
+  'wizard/createChildAndClearDraft',
+  async (_, { getState, dispatch }) => {
+    const state = getState();
+    const wizardState = state.wizard;
+    const parentId = state.auth.parent?.parentId;
+
+    if (!parentId) {
+      throw new Error('Cannot create child: no parent signed in.');
+    }
+
+    const input: CreateChildInput = {
+      parentId,
+      name: wizardState.name.trim(),
+      avatarId: wizardState.avatarId!,
+      ageYears: wizardState.ageYears!,
+      schooling: wizardState.schooling!,
+      gender: wizardState.gender!,
+      location: null,
+    };
+
+    // 1. Create the child
+    await firebaseChildRepository.create(input);
+
+    // 2. Client-side increment of childCount since we have no Cloud Functions yet (MVP Phase 3)
+    const currentCount = state.auth.parent?.childCount ?? 0;
+    await firebaseParentRepository.update(parentId, { childCount: currentCount + 1 });
+
+    // 3. Update Redux auth state instantly
+    dispatch(incrementChildCount());
+
+    // 4. Clear the draft
+    dispatch(clearDraft(parentId));
   }
 );

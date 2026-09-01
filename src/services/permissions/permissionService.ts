@@ -16,6 +16,7 @@ import {
 } from 'react-native-permissions';
 
 import type { Permission } from 'react-native-permissions';
+
 import type { PermissionStatus } from '@/types/models';
 
 import { mapLibraryResult } from './mapResult';
