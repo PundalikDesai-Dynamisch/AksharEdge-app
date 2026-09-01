@@ -31,10 +31,16 @@ interface UsePermissionReturn {
   request: () => Promise<void>;
   /** Open the device Settings page for this app. */
   openSettings: () => Promise<void>;
+  /** True while checking the permission status (e.g. on mount). */
+  isLoading: boolean;
+  /** True if a request has been made during this session. */
+  hasRequested: boolean;
 }
 
 export function usePermission(kind: PermissionKind): UsePermissionReturn {
   const [status, setStatus] = useState<PermissionStatus>('denied');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasRequested, setHasRequested] = useState<boolean>(false);
 
   // Guard against overlapping re-checks (AppState + focus can fire close together).
   const isCheckingRef = useRef(false);
@@ -42,12 +48,14 @@ export function usePermission(kind: PermissionKind): UsePermissionReturn {
   const recheck = useCallback(async (): Promise<void> => {
     if (isCheckingRef.current) return;
     isCheckingRef.current = true;
+    setIsLoading(true);
 
     try {
       const result = await permissionService.check(kind);
       setStatus(result);
     } finally {
       isCheckingRef.current = false;
+      setIsLoading(false);
     }
   }, [kind]);
 
@@ -76,6 +84,7 @@ export function usePermission(kind: PermissionKind): UsePermissionReturn {
   );
 
   const handleRequest = useCallback(async (): Promise<void> => {
+    setHasRequested(true);
     setStatus('requesting');
     const result = await permissionService.request(kind);
     setStatus(result);
@@ -89,5 +98,7 @@ export function usePermission(kind: PermissionKind): UsePermissionReturn {
     status,
     request: handleRequest,
     openSettings: handleOpenSettings,
+    isLoading,
+    hasRequested,
   };
 }

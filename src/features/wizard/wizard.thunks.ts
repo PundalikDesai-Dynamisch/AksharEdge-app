@@ -68,7 +68,7 @@ import { firebaseParentRepository } from '@/data/firebase/firebaseParentReposito
 import { incrementChildCount } from '@/features/auth/auth.slice';
 import type { CreateChildInput } from '@/data/repositories/childRepository';
 
-import { restoreDraft } from './wizard.slice';
+import { restoreDraft, setMode } from './wizard.slice';
 import type { WizardState } from './wizard.slice';
 
 export const loadChildForEdit = createAsyncThunk<
@@ -79,6 +79,7 @@ export const loadChildForEdit = createAsyncThunk<
   'wizard/loadChildForEdit',
   async (childId, { dispatch }) => {
     const child = await firebaseChildRepository.get(childId);
+    dispatch(setMode({ mode: 'edit', childId }));
     dispatch(restoreDraft({
       name: child.name,
       avatarId: child.avatarId,
@@ -104,25 +105,39 @@ export const createChildAndClearDraft = createAsyncThunk<
       throw new Error('Cannot create child: no parent signed in.');
     }
 
-    const input: CreateChildInput = {
-      parentId,
-      name: wizardState.name.trim(),
-      avatarId: wizardState.avatarId!,
-      ageYears: wizardState.ageYears!,
-      schooling: wizardState.schooling!,
-      gender: wizardState.gender!,
-      location: null,
-    };
+    if (wizardState.mode === 'edit' && wizardState.childId) {
+      // 1. Update the existing child
+      await firebaseChildRepository.update(wizardState.childId, {
+        name: wizardState.name.trim(),
+        avatarId: wizardState.avatarId!,
+        ageYears: wizardState.ageYears!,
+        schooling: wizardState.schooling!,
+        gender: wizardState.gender!,
+        // Not updating location here as it's typically set once on creation 
+        // or handled by a separate update flow. If we want to allow updating
+        // location during edit, we can pass `location: wizardState.location || undefined`.
+      });
+    } else {
+      const input: CreateChildInput = {
+        parentId,
+        name: wizardState.name.trim(),
+        avatarId: wizardState.avatarId!,
+        ageYears: wizardState.ageYears!,
+        schooling: wizardState.schooling!,
+        gender: wizardState.gender!,
+        location: wizardState.location,
+      };
 
-    // 1. Create the child
-    await firebaseChildRepository.create(input);
+      // 1. Create the new child
+      await firebaseChildRepository.create(input);
 
-    // 2. Client-side increment of childCount since we have no Cloud Functions yet (MVP Phase 3)
-    const currentCount = state.auth.parent?.childCount ?? 0;
-    await firebaseParentRepository.update(parentId, { childCount: currentCount + 1 });
+      // 2. Client-side increment of childCount since we have no Cloud Functions yet (MVP Phase 3)
+      const currentCount = state.auth.parent?.childCount ?? 0;
+      await firebaseParentRepository.update(parentId, { childCount: currentCount + 1 });
 
-    // 3. Update Redux auth state instantly
-    dispatch(incrementChildCount());
+      // 3. Update Redux auth state instantly
+      dispatch(incrementChildCount());
+    }
 
     // 4. Clear the draft
     dispatch(clearDraft(parentId));

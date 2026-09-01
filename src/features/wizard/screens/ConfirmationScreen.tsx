@@ -18,17 +18,19 @@ export function ConfirmationScreen({ navigation }: WizardScreenProps<'Confirmati
   const wizard = useAppSelector(state => state.wizard);
   const isValid = useAppSelector(selectCanReachConfirmation);
 
-  const { status: locationStatus } = usePermission('location');
-  const { status: cameraStatus } = usePermission('camera');
+  const { status: locationStatus, isLoading: isLocationLoading } = usePermission('location');
+  const { status: cameraStatus, isLoading: isCameraLoading } = usePermission('camera');
 
   useFocusEffect(
     useCallback(() => {
+      if (isLocationLoading || isCameraLoading) return;
+
       if (locationStatus === 'denied' || locationStatus === 'blocked') {
         navigation.navigate('PermissionStep', { kind: 'location' });
       } else if (cameraStatus === 'denied' || cameraStatus === 'blocked') {
         navigation.navigate('PermissionStep', { kind: 'camera' });
       }
-    }, [locationStatus, cameraStatus, navigation])
+    }, [locationStatus, cameraStatus, isLocationLoading, isCameraLoading, navigation])
   );
   
   const handleStart = async () => {
@@ -66,6 +68,11 @@ export function ConfirmationScreen({ navigation }: WizardScreenProps<'Confirmati
               <Text style={styles.name}>{wizard.name}</Text>
               <Text style={styles.detailText}>{wizard.ageYears} years old</Text>
               <Text style={styles.detailText}>{wizard.schooling}</Text>
+              <Text style={styles.detailText}>
+                {wizard.location 
+                  ? (wizard.location.label || 'Location saved') 
+                  : 'Resolving location...'}
+              </Text>
             </View>
           </View>
         </Card>
