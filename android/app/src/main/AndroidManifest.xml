@@ -3,6 +3,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- Spec §15, Camera Permission gate. Also the writing-sample capture, Phase 4 §24. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Spec §13, Location Permission gate. Coarse is enough — the child's location is a
+         label from reverse geocoding, not a map pin. Both grains declared so Android 12+
+         shows the precise/approximate chooser. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"

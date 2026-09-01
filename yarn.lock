@@ -3895,6 +3895,7 @@ __metadata:
     react: 19.2.3
     react-native: 0.86.2
     react-native-gesture-handler: 3.1.0
+    react-native-permissions: ^5.6.1
     react-native-reanimated: 4.5.3
     react-native-safe-area-context: 5.8.1
     react-native-screens: 4.27.0
@@ -9240,6 +9241,20 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: dc82d54e0bf8f89208a538bb0d14e4891af6efae27ed5b7b21be683a72c38c5219ab9be1ea9bd40aa1c905d481174e649d0b71aeceaa9946e6c707f251568282
+  languageName: node
+  linkType: hard
+
+"react-native-permissions@npm:^5.6.1":
+  version: 5.6.1
+  resolution: "react-native-permissions@npm:5.6.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-windows: "*"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 82ab49f4b7bfe364f2695478ac94789c86ee20d9553d05760af9d7da23b6df3b82ae79e53ff62881bffb781b50effdcc9d12d171a10a971388e2e55aee75f297
   languageName: node
   linkType: hard
 

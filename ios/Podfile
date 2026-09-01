@@ -29,6 +29,13 @@ target 'DyslexiaApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Phase 3, Branch 21: Only the two permission handlers the app actually uses.
+  # Adding every handler bloats the binary and can trigger App Store questions.
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'RNPermissions', :path => permissions_path
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+
   post_install do |installer|
     react_native_post_install(
       installer,
