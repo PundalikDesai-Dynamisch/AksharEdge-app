@@ -20,4 +20,7 @@ export const ROUTES = {
   gamesTab: 'GamesTab',
 
   unityGame: 'UnityGame',
+
+  /** Dev-only. Registered behind __DEV__ in AppNavigator and absent from release builds. */
+  gallery: 'Gallery',
 } as const;

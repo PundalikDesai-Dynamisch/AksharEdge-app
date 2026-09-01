@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders with and without a label 1`] = `
+<View
+  accessibilityRole="progressbar"
+  style={
+    {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "padding": 16,
+    }
+  }
+>
+  <ActivityIndicator
+    color="#B54C35"
+    size="large"
+  />
+</View>
+`;
+
+exports[`Loader renders with and without a label 2`] = `
+<View
+  accessibilityLabel="Loading…"
+  accessibilityRole="progressbar"
+  style={
+    {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "padding": 16,
+    }
+  }
+>
+  <ActivityIndicator
+    color="#B54C35"
+    size="small"
+  />
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 15,
+        "lineHeight": 23,
+        "marginTop": 12,
+        "textAlign": "center",
+      }
+    }
+  >
+    Loading…
+  </Text>
+</View>
+`;

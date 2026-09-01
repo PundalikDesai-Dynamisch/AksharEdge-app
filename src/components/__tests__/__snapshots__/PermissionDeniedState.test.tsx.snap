@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PermissionDeniedState renders the blocked state 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "gap": 12,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    accessibilityRole="image"
+    height={96}
+    importantForAccessibility="no-hide-descendants"
+    width={96}
+  />
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FDF0DF",
+        "borderRadius": 999,
+        "height": 48,
+        "justifyContent": "center",
+        "marginTop": 8,
+        "width": 48,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#99621F",
+            "fontSize": 22,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 22,
+        "lineHeight": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    Location access is required
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    We can't finish setting up your child's profile without it. Tap Try Again to allow location.
+  </Text>
+  <View
+    style={
+      {
+        "alignSelf": "stretch",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Open Settings"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "borderRadius": 999,
+            "justifyContent": "center",
+            "paddingHorizontal": 24,
+          },
+          {
+            "minHeight": 56,
+          },
+          {
+            "elevation": 2,
+            "shadowColor": "#402A1A",
+            "shadowOffset": {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.06,
+            "shadowRadius": 6,
+          },
+          {
+            "backgroundColor": "#B54C35",
+            "borderColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "alignSelf": "stretch",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Nunito-SemiBold",
+                "fontSize": 17,
+                "lineHeight": 22,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          Open Settings
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PermissionDeniedState renders the denied state 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "gap": 12,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    accessibilityRole="image"
+    height={96}
+    importantForAccessibility="no-hide-descendants"
+    width={96}
+  />
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FDF0DF",
+        "borderRadius": 999,
+        "height": 48,
+        "justifyContent": "center",
+        "marginTop": 8,
+        "width": 48,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#99621F",
+            "fontSize": 22,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 22,
+        "lineHeight": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    Location access is required
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    We can't finish setting up your child's profile without it. Tap Try Again to allow location.
+  </Text>
+  <View
+    style={
+      {
+        "alignSelf": "stretch",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Try Again"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "borderRadius": 999,
+            "justifyContent": "center",
+            "paddingHorizontal": 24,
+          },
+          {
+            "minHeight": 56,
+          },
+          {
+            "elevation": 2,
+            "shadowColor": "#402A1A",
+            "shadowOffset": {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.06,
+            "shadowRadius": 6,
+          },
+          {
+            "backgroundColor": "#B54C35",
+            "borderColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "alignSelf": "stretch",
+          },
+          false,
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Nunito-SemiBold",
+                "fontSize": 17,
+                "lineHeight": 22,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          Try Again
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PermissionDeniedState renders the unavailable state 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "gap": 12,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    accessibilityRole="image"
+    height={96}
+    importantForAccessibility="no-hide-descendants"
+    width={96}
+  />
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FDF0DF",
+        "borderRadius": 999,
+        "height": 48,
+        "justifyContent": "center",
+        "marginTop": 8,
+        "width": 48,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#99621F",
+            "fontSize": 22,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-Bold",
+        "fontSize": 22,
+        "lineHeight": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    Location access is required
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6B6058",
+        "fontFamily": "Nunito-Regular",
+        "fontSize": 16,
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    We can't finish setting up your child's profile without it. Tap Try Again to allow location.
+  </Text>
+  <View
+    style={
+      {
+        "alignSelf": "stretch",
+        "marginTop": 24,
+      }
+    }
+  />
+</View>
+`;

@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast renders the error kind 1`] = `
+<View
+  accessibilityLiveRegion="polite"
+  accessibilityRole="alert"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderRadius": 20,
+        "elevation": 4,
+        "flexDirection": "row",
+        "gap": 8,
+        "left": 16,
+        "paddingHorizontal": 16,
+        "paddingVertical": 12,
+        "position": "absolute",
+        "right": 16,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.09,
+        "shadowRadius": 12,
+      },
+      {
+        "backgroundColor": "#FDECEC",
+        "bottom": 58,
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#C33D41",
+          "fontSize": 18,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={3}
+    style={
+      [
+        {
+          "flex": 1,
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "color": "#C33D41",
+        },
+      ]
+    }
+  >
+    Something happened.
+  </Text>
+</View>
+`;
+
+exports[`Toast renders the info kind 1`] = `
+<View
+  accessibilityLiveRegion="polite"
+  accessibilityRole="alert"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderRadius": 20,
+        "elevation": 4,
+        "flexDirection": "row",
+        "gap": 8,
+        "left": 16,
+        "paddingHorizontal": 16,
+        "paddingVertical": 12,
+        "position": "absolute",
+        "right": 16,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.09,
+        "shadowRadius": 12,
+      },
+      {
+        "backgroundColor": "#E4F5FE",
+        "bottom": 58,
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#0C76A5",
+          "fontSize": 18,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={3}
+    style={
+      [
+        {
+          "flex": 1,
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "color": "#0C76A5",
+        },
+      ]
+    }
+  >
+    Something happened.
+  </Text>
+</View>
+`;
+
+exports[`Toast renders the success kind 1`] = `
+<View
+  accessibilityLiveRegion="polite"
+  accessibilityRole="alert"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderRadius": 20,
+        "elevation": 4,
+        "flexDirection": "row",
+        "gap": 8,
+        "left": 16,
+        "paddingHorizontal": 16,
+        "paddingVertical": 12,
+        "position": "absolute",
+        "right": 16,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.09,
+        "shadowRadius": 12,
+      },
+      {
+        "backgroundColor": "#E7F9ED",
+        "bottom": 58,
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#377D47",
+          "fontSize": 18,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={3}
+    style={
+      [
+        {
+          "flex": 1,
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "color": "#377D47",
+        },
+      ]
+    }
+  >
+    Something happened.
+  </Text>
+</View>
+`;
+
+exports[`Toast renders the warning kind 1`] = `
+<View
+  accessibilityLiveRegion="polite"
+  accessibilityRole="alert"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderRadius": 20,
+        "elevation": 4,
+        "flexDirection": "row",
+        "gap": 8,
+        "left": 16,
+        "paddingHorizontal": 16,
+        "paddingVertical": 12,
+        "position": "absolute",
+        "right": 16,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.09,
+        "shadowRadius": 12,
+      },
+      {
+        "backgroundColor": "#FDF0DF",
+        "bottom": 58,
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#99621F",
+          "fontSize": 18,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={3}
+    style={
+      [
+        {
+          "flex": 1,
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+        {
+          "color": "#99621F",
+        },
+      ]
+    }
+  >
+    Something happened.
+  </Text>
+</View>
+`;

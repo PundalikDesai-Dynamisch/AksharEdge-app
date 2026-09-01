@@ -1,0 +1,352 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField renders default, filled, error and disabled states 1`] = `
+<View
+  style={
+    {
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-SemiBold",
+        "fontSize": 18,
+        "lineHeight": 26,
+        "marginBottom": 4,
+      }
+    }
+  >
+    Email
+  </Text>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#EDE0D1",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+        },
+        false,
+        false,
+        false,
+        false,
+      ]
+    }
+  >
+    <TextInput
+      accessibilityLabel="Email"
+      accessibilityState={
+        {
+          "disabled": false,
+        }
+      }
+      autoCapitalize="sentences"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      placeholderTextColor="#6B6058"
+      secureTextEntry={false}
+      style={
+        [
+          {
+            "color": "#333333",
+            "flex": 1,
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingVertical": 8,
+          },
+          false,
+        ]
+      }
+      value=""
+    />
+  </View>
+</View>
+`;
+
+exports[`TextField renders default, filled, error and disabled states 2`] = `
+<View
+  style={
+    {
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-SemiBold",
+        "fontSize": 18,
+        "lineHeight": 26,
+        "marginBottom": 4,
+      }
+    }
+  >
+    Email
+  </Text>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#EDE0D1",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+        },
+        false,
+        false,
+        false,
+        false,
+      ]
+    }
+  >
+    <TextInput
+      accessibilityLabel="Email"
+      accessibilityState={
+        {
+          "disabled": false,
+        }
+      }
+      autoCapitalize="sentences"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      placeholderTextColor="#6B6058"
+      secureTextEntry={false}
+      style={
+        [
+          {
+            "color": "#333333",
+            "flex": 1,
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingVertical": 8,
+          },
+          false,
+        ]
+      }
+      value="a@b.com"
+    />
+  </View>
+</View>
+`;
+
+exports[`TextField renders default, filled, error and disabled states 3`] = `
+<View
+  style={
+    {
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-SemiBold",
+        "fontSize": 18,
+        "lineHeight": 26,
+        "marginBottom": 4,
+      }
+    }
+  >
+    Email
+  </Text>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#EDE0D1",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+        },
+        false,
+        {
+          "borderColor": "#D34247",
+          "borderWidth": 2,
+        },
+        false,
+        false,
+      ]
+    }
+  >
+    <TextInput
+      accessibilityLabel="Email"
+      accessibilityState={
+        {
+          "disabled": false,
+        }
+      }
+      autoCapitalize="sentences"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      placeholderTextColor="#6B6058"
+      secureTextEntry={false}
+      style={
+        [
+          {
+            "color": "#333333",
+            "flex": 1,
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingVertical": 8,
+          },
+          false,
+        ]
+      }
+      value="nope"
+    />
+  </View>
+  <View
+    accessibilityLiveRegion="polite"
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 4,
+        "marginTop": 4,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#D34247",
+            "fontSize": 14,
+          },
+          undefined,
+          {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        {
+          "color": "#D34247",
+          "flexShrink": 1,
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        }
+      }
+    >
+      Enter a valid email.
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`TextField renders default, filled, error and disabled states 4`] = `
+<View
+  style={
+    {
+      "marginBottom": 16,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#333333",
+        "fontFamily": "Baloo2-SemiBold",
+        "fontSize": 18,
+        "lineHeight": 26,
+        "marginBottom": 4,
+      }
+    }
+  >
+    Email
+  </Text>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#EDE0D1",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+        },
+        false,
+        false,
+        {
+          "backgroundColor": "#FFFBF5",
+        },
+        false,
+      ]
+    }
+  >
+    <TextInput
+      accessibilityLabel="Email"
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      autoCapitalize="sentences"
+      editable={false}
+      multiline={false}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      placeholderTextColor="#6B6058"
+      secureTextEntry={false}
+      style={
+        [
+          {
+            "color": "#333333",
+            "flex": 1,
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingVertical": 8,
+          },
+          false,
+        ]
+      }
+      value="locked"
+    />
+  </View>
+</View>
+`;

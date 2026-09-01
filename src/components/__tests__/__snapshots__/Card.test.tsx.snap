@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders the accent tone 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 20,
+        "elevation": 2,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.06,
+        "shadowRadius": 6,
+      },
+      {
+        "backgroundColor": "#FFF6DC",
+      },
+      {
+        "padding": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text>
+    Body
+  </Text>
+</View>
+`;
+
+exports[`Card renders the plain tone 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 20,
+        "elevation": 2,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.06,
+        "shadowRadius": 6,
+      },
+      {
+        "backgroundColor": "#FFFFFF",
+      },
+      {
+        "padding": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text>
+    Body
+  </Text>
+</View>
+`;
+
+exports[`Card renders the sky tone 1`] = `
+<View
+  style={
+    [
+      {
+        "borderRadius": 20,
+        "elevation": 2,
+        "shadowColor": "#402A1A",
+        "shadowOffset": {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.06,
+        "shadowRadius": 6,
+      },
+      {
+        "backgroundColor": "#E4F5FE",
+      },
+      {
+        "padding": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text>
+    Body
+  </Text>
+</View>
+`;

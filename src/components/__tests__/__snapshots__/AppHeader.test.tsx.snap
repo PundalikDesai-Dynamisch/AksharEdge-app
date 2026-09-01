@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader renders title alone and with a subtitle 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "gap": 12,
+      "justifyContent": "space-between",
+      "paddingVertical": 16,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        {
+          "color": "#333333",
+          "fontFamily": "Baloo2-ExtraBold",
+          "fontSize": 32,
+          "lineHeight": 40,
+        }
+      }
+    >
+      Welcome
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`AppHeader renders title alone and with a subtitle 2`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "gap": 12,
+      "justifyContent": "space-between",
+      "paddingVertical": 16,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flexShrink": 1,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        {
+          "color": "#333333",
+          "fontFamily": "Baloo2-ExtraBold",
+          "fontSize": 32,
+          "lineHeight": 40,
+        }
+      }
+    >
+      Welcome
+    </Text>
+    <Text
+      numberOfLines={1}
+      style={
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 15,
+          "lineHeight": 23,
+          "marginTop": 4,
+        }
+      }
+    >
+      Priya
+    </Text>
+  </View>
+</View>
+`;

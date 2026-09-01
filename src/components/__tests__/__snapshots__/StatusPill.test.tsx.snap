@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusPill renders in_progress 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#E4F5FE",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#0C76A5",
+          "fontSize": 14,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#0C76A5",
+        },
+      ]
+    }
+  >
+    In progress
+  </Text>
+</View>
+`;
+
+exports[`StatusPill renders not_started 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#FFFFFF",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontSize": 14,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#6B6058",
+        },
+      ]
+    }
+  >
+    Not started
+  </Text>
+</View>
+`;
+
+exports[`StatusPill renders report_ready 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderColor": "#EDE0D1",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "gap": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      },
+      {
+        "backgroundColor": "#E7F9ED",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      [
+        {
+          "color": "#377D47",
+          "fontSize": 14,
+        },
+        undefined,
+        {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    numberOfLines={1}
+    style={
+      [
+        {
+          "color": "#6B6058",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#377D47",
+        },
+      ]
+    }
+  >
+    Report ready
+  </Text>
+</View>
+`;
