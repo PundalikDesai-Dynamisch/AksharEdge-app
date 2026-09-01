@@ -128,10 +128,7 @@ export const selectStep1Valid = (state: { wizard: WizardState }): boolean => {
   const w = state.wizard;
   return (
     w.name.trim().length > 0 &&
-    w.ageYears !== null &&
-    w.schooling !== null &&
-    w.gender !== null
-    // Avatar is always valid because it defaults to DEFAULT_AVATAR_ID
+    w.ageYears !== null
   );
 };
 
@@ -140,5 +137,5 @@ export const selectCanReachConfirmation = (state: { wizard: WizardState }): bool
   // This selector must NOT consult lastKnown.
   // Reaching confirmation depends on a live OS check (Branch 24).
   // This just covers data fields.
-  return selectStep1Valid(state) && w.location !== null;
+  return selectStep1Valid(state) && w.schooling !== null && w.gender !== null;
 };

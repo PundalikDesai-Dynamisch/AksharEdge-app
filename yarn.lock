@@ -3907,6 +3907,8 @@ __metadata:
     prettier: 2.8.8
     react: 19.2.3
     react-native: 0.86.2
+    react-native-geocoder-reborn: ^0.9.0
+    react-native-geolocation-service: ^5.3.1
     react-native-gesture-handler: 3.1.0
     react-native-permissions: ^5.6.1
     react-native-reanimated: 4.5.3
@@ -9238,6 +9240,22 @@ __metadata:
   version: 19.2.8
   resolution: "react-is@npm:19.2.8"
   checksum: ec955b3b167cbe041a1f474063d15aa0c5a4d67a75b95e3e4090e9b964986a1fcf66370f3aa4deb34342c898e5d95da37d725d089c40e537598e0c3cc8bba00e
+  languageName: node
+  linkType: hard
+
+"react-native-geocoder-reborn@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "react-native-geocoder-reborn@npm:0.9.0"
+  peerDependencies:
+    react-native: ">=0.56.0"
+  checksum: 0c1744e73af08f55ad4dd18df7c4a6a963f36f3a440eef07caa50260e76392c6311186d5c5c6b924d0e75fe09945cbe03d5a9f5940fd724f6ff9dd601a642643
+  languageName: node
+  linkType: hard
+
+"react-native-geolocation-service@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "react-native-geolocation-service@npm:5.3.1"
+  checksum: 9a625c9f87811933491055fd8cbd1ef46f97fbbe0262714ad1d9aa969a8900dcb4abc47e58fe162400a81bcdee79324dfcc8e631862df9a22d59ac84af9acfde
   languageName: node
   linkType: hard
 

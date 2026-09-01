@@ -7,38 +7,65 @@ import { usePermission } from '@/services/permissions/usePermission';
 import { strings } from '@/constants/strings';
 import type { WizardScreenProps } from '@/navigation/types';
 
+import { useAppDispatch } from '@store/hooks';
+import { setLocation } from '../wizard.slice';
+import { locationService } from '@/services/location/locationService';
+
 export function PermissionStepScreen({ route, navigation }: WizardScreenProps<'PermissionStep'>): React.JSX.Element {
   const { kind } = route.params;
-  const { status, request, openSettings } = usePermission(kind);
+  const { status, isLoading, hasRequested, request, openSettings } = usePermission(kind);
+  const dispatch = useAppDispatch();
 
   // If granted (whether initially or after returning from settings), move forward automatically.
   useFocusEffect(
     useCallback(() => {
+      if (isLoading) return;
+
       if (status === 'granted') {
         if (kind === 'location') {
-          navigation.navigate('PermissionStep', { kind: 'camera' });
-        } else {
-          navigation.navigate('Confirmation');
+          // Trigger geocoding in the background (fire-and-forget) while we wait
+          (async () => {
+            const coords = await locationService.getCurrentPosition();
+            if (coords) {
+              const label = await locationService.reverseGeocode(coords.lat, coords.lng);
+              dispatch(setLocation({
+                lat: coords.lat,
+                lng: coords.lng,
+                label: label || 'Location saved',
+                capturedAt: new Date().toISOString(),
+              }));
+            }
+          })();
         }
+
+        // Delay the auto-advance so the user can see the "Access allowed" state
+        const timer = setTimeout(() => {
+          if (kind === 'location') {
+            navigation.push('PermissionStep', { kind: 'camera' });
+          } else {
+            navigation.navigate('Confirmation');
+          }
+        }, 1200);
+
+        return () => clearTimeout(timer);
       } else if (status === 'unavailable') {
         // According to specs, if unavailable, it can't be requested or fixed.
         // We skip automatically.
         if (kind === 'location') {
-          navigation.navigate('PermissionStep', { kind: 'camera' });
+          navigation.push('PermissionStep', { kind: 'camera' });
         } else {
           navigation.navigate('Confirmation');
         }
       }
-    }, [status, kind, navigation])
+    }, [status, isLoading, kind, navigation, dispatch])
   );
 
-  // Intercept the hardware back button when the gate is active
   useFocusEffect(
     useCallback(() => {
       const onBackPress = () => {
         if (kind === 'camera') {
           // Hardware back on camera goes to location
-          navigation.navigate('PermissionStep', { kind: 'location' });
+          navigation.goBack();
           return true;
         } else {
           // Hardware back on location goes to details
@@ -62,7 +89,7 @@ export function PermissionStepScreen({ route, navigation }: WizardScreenProps<'P
 
   const handleBack = (): void => {
     if (kind === 'camera') {
-      navigation.navigate('PermissionStep', { kind: 'location' });
+      navigation.goBack();
     } else {
       navigation.navigate('ChildDetails');
     }
@@ -70,6 +97,8 @@ export function PermissionStepScreen({ route, navigation }: WizardScreenProps<'P
 
   const content = kind === 'location' ? strings.permissions.location : strings.permissions.camera;
   const mascotPose = kind === 'location' ? 'mapPin' : 'camera';
+
+  const shouldShowDenied = status === 'blocked' || status === 'unavailable' || (status === 'denied' && hasRequested);
 
   return (
     <Screen>
@@ -86,7 +115,7 @@ export function PermissionStepScreen({ route, navigation }: WizardScreenProps<'P
         completedKeys={['step1', 'step2']}
       />
       <View style={styles.content}>
-        {status === 'denied' || status === 'blocked' || status === 'unavailable' ? (
+        {shouldShowDenied ? (
           <PermissionDeniedState
             mascotPose={mascotPose}
             title={content.deniedTitle}
