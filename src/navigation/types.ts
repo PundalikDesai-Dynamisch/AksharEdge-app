@@ -16,10 +16,10 @@ export type AuthStackParamList = {
 
 export type ParentStackParamList = {
   ParentHome: undefined;
-  WizardPlaceholder: undefined;
-  AllChildrenPlaceholder: undefined;
-  ParentDetailsPlaceholder: undefined;
-  SupportPlaceholder: undefined;
+  AllChildren: undefined;
+  ParentDetails: undefined;
+  Support: { origin: 'ParentHome' | 'ReadyToPlay' };
+  WizardPlaceholder: { childId?: string };
 };
 
 export type AppStackParamList = {

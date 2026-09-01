@@ -24,16 +24,16 @@ export function PopulatedParentState({ childrenData }: PopulatedParentStateProps
   const handleTabSelect = (key: string) => {
     switch (key) {
       case 'add':
-        navigation.navigate('WizardPlaceholder');
+        navigation.navigate('WizardPlaceholder', {});
         break;
       case 'all':
-        navigation.navigate('AllChildrenPlaceholder');
+        navigation.navigate('AllChildren');
         break;
       case 'parent':
-        navigation.navigate('ParentDetailsPlaceholder');
+        navigation.navigate('ParentDetails');
         break;
       case 'support':
-        navigation.navigate('SupportPlaceholder');
+        navigation.navigate('Support', { origin: 'ParentHome' });
         break;
     }
   };

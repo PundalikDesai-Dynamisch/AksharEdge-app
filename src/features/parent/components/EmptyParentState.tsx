@@ -14,7 +14,7 @@ export function EmptyParentState(): React.JSX.Element {
   const scrollRef = useRef<ScrollView>(null);
 
   const handleNext = () => {
-    navigation.navigate('WizardPlaceholder');
+    navigation.navigate('WizardPlaceholder', {});
   };
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {

@@ -3,9 +3,13 @@ import { Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ParentHomeScreen from '@features/parent/screens/ParentHomeScreen';
+import AllChildrenScreen from '@features/parent/screens/AllChildrenScreen';
+import ParentDetailsScreen from '@features/parent/screens/ParentDetailsScreen';
+import SupportScreen from '@features/parent/screens/SupportScreen';
+
 import { Screen, Icon } from '@components';
-import { defaultStackOptions } from './screenOptions';
 import { typography, spacing, colors } from '@theme';
+import { defaultStackOptions } from './screenOptions';
 
 import type { ParentStackParamList } from './types';
 
@@ -27,9 +31,6 @@ const Placeholder = ({ title }: { title: string }) => (
 );
 
 const WizardPlaceholder = () => <Placeholder title="Create Child Wizard" />;
-const AllChildrenPlaceholder = () => <Placeholder title="All Children" />;
-const ParentDetailsPlaceholder = () => <Placeholder title="Edit Parent Details" />;
-const SupportPlaceholder = () => <Placeholder title="Support" />;
 
 export function ParentNavigator(): React.JSX.Element {
   return (
@@ -45,19 +46,19 @@ export function ParentNavigator(): React.JSX.Element {
         options={{ title: 'Add Child' }} 
       />
       <Stack.Screen 
-        name="AllChildrenPlaceholder" 
-        component={AllChildrenPlaceholder} 
+        name="AllChildren" 
+        component={AllChildrenScreen} 
         options={{ title: 'All Children' }} 
       />
       <Stack.Screen 
-        name="ParentDetailsPlaceholder" 
-        component={ParentDetailsPlaceholder} 
+        name="ParentDetails" 
+        component={ParentDetailsScreen} 
         options={{ title: 'Parent Profile' }} 
       />
       <Stack.Screen 
-        name="SupportPlaceholder" 
-        component={SupportPlaceholder} 
-        options={{ title: 'Support' }} 
+        name="Support" 
+        component={SupportScreen} 
+        options={{ title: 'Support', headerShown: false }} 
       />
     </Stack.Navigator>
   );
