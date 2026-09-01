@@ -77,3 +77,21 @@ const authSlice = createSlice({
 
 export const { setAuthState, clearAuthError } = authSlice.actions;
 export const authReducer = authSlice.reducer;
+
+/**
+ * SELECTORS
+ */
+
+/**
+ * Branch 17 / Phase 2 Note:
+ * This selector instantly determines whether a signed-in parent should be routed to the 
+ * Empty State (carousel) or the Populated State (child list), without needing an extra Firestore query.
+ * 
+ * IMPORTANT: Who owns the childCount increment?
+ * A Cloud Function trigger on the `children` collection creation will own incrementing this `childCount`.
+ * We deliberately do NOT run a client-side transaction in the wizard to avoid drift 
+ * (e.g. if the user loses connection right after creating the child).
+ */
+export const selectHasChildren = (state: { auth: AuthState }): boolean => {
+  return (state.auth.parent?.childCount ?? 0) > 0;
+};

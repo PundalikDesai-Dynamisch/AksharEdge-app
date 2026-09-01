@@ -1,15 +1,5 @@
 import type { NavigatorScreenParams } from '@react-navigation/native';
-
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-
-/**
- * Every param list in the app lives in this file. Params must stay serializable so state
- * persistence and deep links work — pass an entity's id, never the entity.
- *
- * This is the transitional shape left after the teacher-era screens were removed. Phase 2 adds
- * the parent stack (Parent Home, All Children, Parent Details, Support), Phase 3 the child
- * wizard, and Phase 4 the per-child tab navigator and assessment stack.
- */
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -24,19 +14,17 @@ export type AuthStackParamList = {
   ForgotPassword: { email?: string } | undefined;
 };
 
-export type MainTabsParamList = {
-  HomeTab: undefined;
-  GamesTab: undefined;
+export type ParentStackParamList = {
+  ParentHome: undefined;
+  WizardPlaceholder: undefined;
+  AllChildrenPlaceholder: undefined;
+  ParentDetailsPlaceholder: undefined;
+  SupportPlaceholder: undefined;
 };
 
 export type AppStackParamList = {
-  MainTabs: NavigatorScreenParams<MainTabsParamList>;
+  Parent: NavigatorScreenParams<ParentStackParamList>;
   UnityGame: { gameId: string };
-  /**
-   * The dev-only component gallery. Typed unconditionally because a param list cannot be
-   * conditional, but the screen is only registered when __DEV__ — navigating to it in a release
-   * build is a no-op rather than a crash.
-   */
   Gallery: undefined;
 };
 
@@ -52,8 +40,11 @@ export type AuthScreenProps<T extends keyof AuthStackParamList> = NativeStackScr
   AuthStackParamList,
   T
 >;
+export type ParentScreenProps<T extends keyof ParentStackParamList> = NativeStackScreenProps<
+  ParentStackParamList,
+  T
+>;
 
-/** Makes `useNavigation()` typed with no explicit generics. */
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends AppStackParamList {}
