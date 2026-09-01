@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 import { Screen, WizardHeader, Button, Card, Avatar } from '@components';
 import { typography, spacing, colors } from '@theme';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
+import { usePermission } from '@/services/permissions/usePermission';
 
 import type { WizardScreenProps } from '@/navigation/types';
 
@@ -15,6 +17,19 @@ export function ConfirmationScreen({ navigation }: WizardScreenProps<'Confirmati
   
   const wizard = useAppSelector(state => state.wizard);
   const isValid = useAppSelector(selectCanReachConfirmation);
+
+  const { status: locationStatus } = usePermission('location');
+  const { status: cameraStatus } = usePermission('camera');
+
+  useFocusEffect(
+    useCallback(() => {
+      if (locationStatus === 'denied' || locationStatus === 'blocked') {
+        navigation.navigate('PermissionStep', { kind: 'location' });
+      } else if (cameraStatus === 'denied' || cameraStatus === 'blocked') {
+        navigation.navigate('PermissionStep', { kind: 'camera' });
+      }
+    }, [locationStatus, cameraStatus, navigation])
+  );
   
   const handleStart = async () => {
     try {

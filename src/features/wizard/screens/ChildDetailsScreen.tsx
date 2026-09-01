@@ -18,9 +18,8 @@ export function ChildDetailsScreen({ navigation }: WizardScreenProps<'ChildDetai
 
   const isValid = schooling !== null && gender !== null;
 
-  const handleNext = () => {
-    // Interim wiring: skip gates until they are built in Branch 24
-    navigation.navigate('Confirmation');
+  const handleNext = (): void => {
+    navigation.navigate('PermissionStep', { kind: 'location' });
   };
 
   const handleBack = () => {
