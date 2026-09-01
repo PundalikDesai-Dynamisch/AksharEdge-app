@@ -72,5 +72,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- Phase 3, Branch 21: Permission usage strings shown verbatim in the OS dialog.
+	     Written for a parent, not a reviewer. -->
+	<key>NSCameraUsageDescription</key>
+	<string>AksharEdge uses the camera during the assessment to gently observe how your child looks at the screen while they play.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>AksharEdge uses your location once to set up your child's profile, so you don't need to type an address.</string>
 </dict>
 </plist>
