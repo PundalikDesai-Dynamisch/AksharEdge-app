@@ -7,6 +7,7 @@ import { colors, spacing, typography, radii } from '@theme';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { signInThunk, signInWithGoogleThunk } from '@/features/auth/auth.thunks';
 import { clearAuthError } from '@/features/auth/auth.slice';
+import { strings } from '@/constants/strings';
 
 import type { AuthScreenProps } from '@/navigation/types';
 
@@ -16,17 +17,21 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [validationError, setValidationError] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleLogin = (): void => {
     dispatch(clearAuthError());
-    setValidationError('');
+    const newErrors: Record<string, string> = {};
     
-    if (!email || !password) {
-      setValidationError('Please enter both email and password.');
+    if (!email) newErrors.email = strings.auth.requiredFields;
+    if (!password) newErrors.password = strings.auth.requiredFields;
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
     
+    setErrors({});
     dispatch(signInThunk({ email, password }));
   };
 
@@ -40,10 +45,9 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
       <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
         <View style={styles.body}>
           <Text style={styles.title}>Welcome back</Text>
-          <Text style={styles.subtitle}>Sign in to your parent account</Text>
+          <Text style={styles.subtitle}>{strings.auth.loginSubtitle}</Text>
 
           {error && <Text style={styles.errorBanner}>{error.userMessage}</Text>}
-          {validationError ? <Text style={styles.errorBanner}>{validationError}</Text> : null}
 
           <TextField
             label="Email Address"
@@ -52,7 +56,8 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
-            placeholder="parent@email.com"
+            placeholder={strings.auth.emailPlaceholder}
+            error={errors.email}
           />
 
           <TextField
@@ -61,15 +66,18 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
             onChangeText={setPassword}
             secure={true}
             autoComplete="password"
-            placeholder="Enter your password"
+            placeholder={strings.auth.passwordPlaceholder}
+            error={errors.password}
           />
 
-          <TouchableOpacity 
-            style={styles.forgotPasswordButton}
-            onPress={() => navigation.navigate('ForgotPassword')}
-          >
-            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-          </TouchableOpacity>
+          <View style={styles.forgotPasswordContainer}>
+            <Text 
+              style={styles.forgotPasswordLink}
+              onPress={() => navigation.navigate('ForgotPassword')}
+            >
+              Forgot Password?
+            </Text>
+          </View>
 
           <Button 
             label="Sign In" 
@@ -85,6 +93,13 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
             <View style={styles.divider} />
           </View>
 
+          {/* 
+            Google Sign-In Button
+            This button is deliberately hand-rolled instead of using the standard <Button> component.
+            Google has strict brand guidelines for sign-in buttons (specific shadow, border, 'G' logo styling) 
+            that would pollute our core Button component if forced through its variant table. 
+            Do not replace this with <Button>.
+          */}
           <TouchableOpacity 
             style={styles.googleButton}
             onPress={handleGoogleLogin}
@@ -102,7 +117,7 @@ export default function LoginScreen({ navigation }: AuthScreenProps<'Login'>): R
               style={styles.footerLink}
               onPress={() => navigation.navigate('Register')}
             >
-              Register here
+              Sign Up
             </Text>
           </Text>
         </View>
@@ -139,14 +154,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
     overflow: 'hidden',
   },
-  forgotPasswordButton: {
-    alignSelf: 'flex-end',
+  forgotPasswordContainer: {
+    alignItems: 'flex-end',
     marginBottom: spacing.xl,
   },
-  forgotPasswordText: {
+  forgotPasswordLink: {
     ...typography.caption,
-    color: colors.primary,
     fontWeight: 'bold',
+    color: colors.primary,
   },
   loginButton: {
     marginBottom: spacing.xxl,
