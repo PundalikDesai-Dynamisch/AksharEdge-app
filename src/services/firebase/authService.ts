@@ -91,6 +91,18 @@ export const authService = {
     }
   },
 
+  async updatePassword(newPassword: string): Promise<void> {
+    try {
+      const auth = getAuth();
+      if (!auth.currentUser) throw new Error('No user is currently signed in.');
+      // Need to import updatePassword from @react-native-firebase/auth
+      const { updatePassword: firebaseUpdatePassword } = require('@react-native-firebase/auth');
+      await firebaseUpdatePassword(auth.currentUser, newPassword);
+    } catch (e) {
+      throw mapAuthError(e);
+    }
+  },
+
   async signOut(): Promise<void> {
     try {
       // Safe no-op if not signed in with Google
