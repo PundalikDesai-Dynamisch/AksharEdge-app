@@ -8,8 +8,7 @@ export interface GeoPoint {
 }
 
 /**
- * The account holder. Replaces the teacher-era `Teacher` entity, which stays in place until
- * phase-2/parent-entity swaps the auth slice over to this.
+ * The account holder.
  *
  * `childCount` is denormalised deliberately: sign-in has to route to the empty state or the
  * populated list, and that decision should cost one document read rather than a query.

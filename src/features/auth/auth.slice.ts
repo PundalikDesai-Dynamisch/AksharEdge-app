@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import type { Teacher } from '@/domain/entities/Teacher';
+import type { Parent } from '@/domain/entities/Parent';
 import type { AuthStatus } from '@/types/models';
 
 import {
@@ -15,18 +15,18 @@ import {
 
 export interface AuthState {
   status: AuthStatus;
-  teacher: Teacher | null;
+  parent: Parent | null;
   isSubmitting: boolean;
   error: { code: string; userMessage: string } | null;
 }
 
 /**
  * `unknown` rather than `signedOut` is deliberate: collapsing the two flashes the Welcome
- * screen for ~300ms on every launch for an already-signed-in teacher (doc 06 §5).
+ * screen for ~300ms on every launch for an already-signed-in parent (doc 06 §5).
  */
 const initialState: AuthState = {
   status: 'unknown',
-  teacher: null,
+  parent: null,
   isSubmitting: false,
   error: null,
 };
@@ -38,15 +38,15 @@ const authSlice = createSlice({
     /**
      * From Phase 1 on, dispatched only by the `onAuthStateChanged` listener in bootstrap.ts —
      * never from a thunk's `fulfilled` handler, so there is exactly one writer of
-     * `status`/`teacher` (doc 16 §3). In Phase 0 the Splash/Welcome/Settings stubs dispatch it
+     * `status`/`parent` (doc 16 §3). In Phase 0 the Splash/Welcome/Settings stubs dispatch it
      * directly, which is the hardcoded gate toggle doc 06 §11 asks for.
      */
     setAuthState(
       state,
-      action: PayloadAction<{ status: AuthStatus; teacher: Teacher | null }>,
+      action: PayloadAction<{ status: AuthStatus; parent: Parent | null }>,
     ): void {
       state.status = action.payload.status;
-      state.teacher = action.payload.teacher;
+      state.parent = action.payload.parent;
       state.error = null;
     },
 
