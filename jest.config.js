@@ -19,6 +19,7 @@ const TRANSPILED_PACKAGES = [
   'react-native-safe-area-context',
   'react-native-gesture-handler',
   'react-native-screens',
+  'immer',
 ].join('|');
 
 module.exports = {
