@@ -1,0 +1,14 @@
+{
+  // The security-rules harness is Node code, not React Native code, and it is the only thing in
+  // this repo that is. It needs `@types/node` for fs/path/__dirname, and the base config
+  // deliberately narrows `types` to ["jest"] — so widening it there would put Node's globals
+  // (Buffer, and a `setTimeout` that returns NodeJS.Timeout rather than a number) into the type
+  // scope of every screen in the app. Hence a second project instead.
+  //
+  // Checked by `yarn typecheck`, which runs both projects.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "node"]
+  },
+  "include": ["*.rules.test.ts", "jest/rulesEmulator.ts"]
+}

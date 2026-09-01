@@ -1415,7 +1415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.28.5":
+"@babel/preset-typescript@npm:^7.28.5, @babel/preset-typescript@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/preset-typescript@npm:7.29.7"
   dependencies:
@@ -2035,6 +2035,15 @@ __metadata:
   peerDependencies:
     "@firebase/app": 0.x
   checksum: 8bde8df8d9cb17ec73a196e191fe98bf5d1d4c5a483309bc65c9ca34a10f6647a954bb3a817cf240e409566ead9215e67633cf75d1b2daf6cd7de3acb852ad5a
+  languageName: node
+  linkType: hard
+
+"@firebase/rules-unit-testing@npm:5.0.2":
+  version: 5.0.2
+  resolution: "@firebase/rules-unit-testing@npm:5.0.2"
+  peerDependencies:
+    firebase: ^12.0.0
+  checksum: 6c44b836ae7322aef860c39a01e02da83e9f8359b69eb1bdf756668fb1efb6705e94757a99ec9649d9b40451d5d5102c7baabeb9c1ee670c8e37bb185cfd06f0
   languageName: node
   linkType: hard
 
@@ -3615,7 +3624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0":
+"@types/node@npm:*, @types/node@npm:26.4.0, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0":
   version: 26.4.0
   resolution: "@types/node@npm:26.4.0"
   dependencies:
@@ -3849,7 +3858,9 @@ __metadata:
     "@azesmway/react-native-unity": ^1.1.1
     "@babel/core": ^7.25.2
     "@babel/preset-env": ^7.25.3
+    "@babel/preset-typescript": ^7.29.7
     "@babel/runtime": ^7.25.0
+    "@firebase/rules-unit-testing": 5.0.2
     "@react-native-community/cli": ^20.2.0
     "@react-native-community/cli-platform-android": 20.1.0
     "@react-native-community/cli-platform-ios": ^20.2.0
@@ -3871,11 +3882,13 @@ __metadata:
     "@react-navigation/native-stack": ^7.18.8
     "@reduxjs/toolkit": ^2.12.0
     "@types/jest": ^29.5.13
+    "@types/node": 26.4.0
     "@types/react": ^19.2.0
     "@types/react-test-renderer": ^19.1.0
     babel-plugin-module-resolver: ^5.0.3
     eslint: ^8.19.0
     eslint-plugin-import: ^2.32.0
+    firebase: 12.17.0
     jest: ^29.6.3
     patch-package: ^8.0.1
     prettier: 2.8.8

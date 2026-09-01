@@ -3,35 +3,88 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function isSignedIn() { return request.auth != null; }
-    function isOwner(teacherId) {
-      return isSignedIn() && request.auth.uid == teacherId;
+
+    /** The account holder owns their own `parents/{parentId}` document. */
+    function isOwner(parentId) {
+      return isSignedIn() && request.auth.uid == parentId;
     }
 
-    match /teachers/{teacherId} {
-      allow read, update: if isOwner(teacherId);
-      allow create: if isOwner(teacherId)
-                    && request.resource.data.teacherId == teacherId;
+    /**
+     * Ownership for every collection that carries a `parentId` field.
+     *
+     * Pass `resource.data` to test the stored document (read/update/delete) and
+     * `request.resource.data` to test the incoming one (create) — on a create there is no
+     * `resource`, so testing the stored document there would deny every write.
+     */
+    function owns(data) {
+      return isSignedIn() && data.parentId == request.auth.uid;
+    }
+
+    match /parents/{parentId} {
+      allow read, update: if isOwner(parentId);
+      allow create: if isOwner(parentId)
+                    && request.resource.data.parentId == parentId;
       allow delete: if false; // no account deletion path in the MVP
     }
 
-    match /students/{studentId} {
-      allow read: if isSignedIn()
-                  && resource.data.teacherId == request.auth.uid;
-      allow create: if isSignedIn()
-                    && request.resource.data.teacherId == request.auth.uid;
-      allow update: if isSignedIn()
-                    && resource.data.teacherId == request.auth.uid
-                    && request.resource.data.teacherId == resource.data.teacherId; // owner cannot be reassigned
-      allow delete: if false; // soft delete only — never a hard delete
+    match /children/{childId} {
+      allow read: if owns(resource.data);
+      allow create: if owns(request.resource.data);
+      allow update: if owns(resource.data)
+                    && request.resource.data.parentId == resource.data.parentId; // owner cannot be reassigned
+      allow delete: if false; // soft delete only — see Child.isDeleted
     }
 
-    match /uploads/{uploadId} {
-      allow read: if isSignedIn()
-                  && resource.data.teacherId == request.auth.uid;
-      allow create: if isSignedIn()
-                    && request.resource.data.teacherId == request.auth.uid
-                    && request.resource.data.status == 'uploaded'; // only the terminal state may be written
-      allow update, delete: if false; // uploads are write-once from the client
+    match /assessments/{assessmentId} {
+      allow read: if owns(resource.data);
+      allow create: if owns(request.resource.data);
+      allow update: if owns(resource.data)
+                    && request.resource.data.parentId == resource.data.parentId; // owner cannot be reassigned
+      allow delete: if false; // an assessment is the audit trail of a screening run
+
+      /**
+       * Subcollection rules do NOT inherit from the parent match, so ownership has to be
+       * re-established here — and the subcollection documents carry no `parentId` of their own
+       * (see GameResult and WritingSample), so it costs a `get()` against the owning assessment.
+       *
+       * That `get()` counts against the per-request document-access budget. It is one call per
+       * rule evaluation, which is why ownership is resolved in a single lookup rather than
+       * walking parent -> child -> assessment.
+       *
+       * A `get()` on a missing assessment yields null, so the rule denies writes to a
+       * subcollection hanging off an assessment that does not exist.
+       */
+      function ownsAssessment() {
+        return isSignedIn()
+               && get(/databases/$(database)/documents/assessments/$(assessmentId)).data.parentId
+                  == request.auth.uid;
+      }
+
+      match /gameResults/{gameId} {
+        allow read, write: if ownsAssessment();
+      }
+
+      match /writing/{writingId} {
+        allow read, write: if ownsAssessment();
+      }
+    }
+
+    /**
+     * ⚠️ Client-read-only, deliberately and permanently.
+     *
+     * A screening result the client can write is a screening result that means nothing.
+     * Whoever computes a report — Cloud Function, Node service, clinician — writes it with
+     * admin credentials, which bypass these rules entirely. Nothing here needs to be relaxed
+     * for that to work, and relaxing it would void every report in the system.
+     */
+    match /reports/{reportId} {
+      allow read: if owns(resource.data);
+      allow create, update, delete: if false;
+    }
+
+    // Deny everything unmatched explicitly.
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

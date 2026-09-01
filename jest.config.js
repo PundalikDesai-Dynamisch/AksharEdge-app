@@ -7,6 +7,8 @@
  * 2. `.svg` resolves through the preset's asset transformer rather than through
  *    react-native-svg-transformer, which makes every mascot, avatar and badge render as `null` —
  *    silently. See jest/svgMock.js.
+ *
+ * It also has to exclude the security-rules suites, which are not React Native tests at all.
  */
 const TRANSPILED_PACKAGES = [
   '(jest-)?react-native',
@@ -27,6 +29,10 @@ module.exports = {
   // everything else.
   resolver: require.resolve('react-native-worklets/jest/resolver.js'),
   setupFiles: ['<rootDir>/jest/setup.js'],
+  // The *.rules.test.ts suites need a running Firebase emulator and a Node environment, so they
+  // live in jest.rules.config.js. Without this, `yarn test` picks them up and every run fails
+  // with "Unable to find the Firestore emulator".
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '\\.rules\\.test\\.ts$'],
   transformIgnorePatterns: [`node_modules/(?!(?:${TRANSPILED_PACKAGES})/)`],
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/jest/svgMock.js',
