@@ -4,6 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import UnityGameScreen from '@features/games/screens/UnityGameScreen';
 import { MissionIntroScreen } from '@features/games/screens/MissionIntroScreen';
+import { WritingIntroScreen } from '@features/writing/screens/WritingIntroScreen';
+import { WritingInstructionScreen } from '@features/writing/screens/WritingInstructionScreen';
+import { WritingUploadScreen } from '@features/writing/screens/WritingUploadScreen';
+import { WritingConfirmationScreen } from '@features/writing/screens/WritingConfirmationScreen';
 import GalleryScreen from '@features/dev/screens/GalleryScreen';
 
 import { ParentNavigator } from './ParentNavigator';
@@ -20,8 +24,11 @@ export function AppNavigator(): React.JSX.Element {
       <Stack.Screen name="Parent" component={ParentNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="MissionIntro" component={MissionIntroScreen} options={{ headerShown: false }} />
       
-      <Stack.Screen name="UnityGame" component={UnityGameScreen} options={{ headerShown: false }} />
-
+      <Stack.Screen name="UnityGame" component={UnityGameScreen} options={{ headerShown: false, orientation: 'landscape' }} />
+      <Stack.Screen name="WritingIntro" component={WritingIntroScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="WritingInstruction" component={WritingInstructionScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="WritingUpload" component={WritingUploadScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="WritingConfirmation" component={WritingConfirmationScreen} options={{ headerShown: false }} />
       {/* Phase 1's component gallery.
           `__DEV__` is inlined to `false` in a release bundle, so this route is never registered
           and the gallery is unreachable — verified by grepping a `--dev false` bundle: 0 matches
