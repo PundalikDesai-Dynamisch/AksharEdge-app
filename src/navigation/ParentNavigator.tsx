@@ -10,6 +10,7 @@ import SupportScreen from '@features/parent/screens/SupportScreen';
 import { defaultStackOptions } from './screenOptions';
 import type { ParentStackParamList } from './types';
 import { WizardNavigator } from './WizardNavigator';
+import { ChildNavigator } from './ChildNavigator';
 
 const Stack = createNativeStackNavigator<ParentStackParamList>();
 
@@ -28,6 +29,11 @@ export function ParentNavigator(): React.JSX.Element {
       <Stack.Screen 
         name="WizardPlaceholder" 
         component={WizardNavigator} 
+        options={{ headerShown: false }} 
+      />
+      <Stack.Screen 
+        name="ChildTabs" 
+        component={ChildNavigator} 
         options={{ headerShown: false }} 
       />
       <Stack.Screen 

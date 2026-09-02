@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Button, Screen, TextField, Card } from '@components';
 import { updateParentThunk } from '@features/parent/parent.thunks';
 import { signOutThunk } from '@features/auth/auth.thunks';
 import { colors, spacing, typography, IconName } from '@theme';
-import type { ParentScreenProps } from '@/navigation/types';
+import type { ParentScreenProps, ChildStackParamList } from '@/navigation/types';
 import type { UpdateParentPayload } from '@features/parent/parent.thunks';
 
 export default function ParentDetailsScreen(): React.JSX.Element {
   const navigation = useNavigation<ParentScreenProps<'ParentDetails'>['navigation']>();
+  const route = useRoute<RouteProp<ChildStackParamList, 'ParentDetails'>>();
+  const isReadonly = route.params?.readonly === true;
   const dispatch = useAppDispatch();
   const parent = useAppSelector(state => state.auth.parent);
 
@@ -64,6 +66,7 @@ export default function ParentDetailsScreen(): React.JSX.Element {
             onChangeText={setFullName}
             autoCapitalize="words"
             returnKeyType="next"
+            editable={!isReadonly}
           />
           <TextField
             label="Phone Number (Optional)"
@@ -71,10 +74,11 @@ export default function ParentDetailsScreen(): React.JSX.Element {
             onChangeText={setPhone}
             keyboardType="phone-pad"
             returnKeyType="done"
+            editable={!isReadonly}
           />
         </Card>
 
-        {parent?.authProvider === 'password' && (
+        {!isReadonly && parent?.authProvider === 'password' && (
           <Card style={styles.section}>
             <View style={styles.passwordHeader}>
               <Text style={styles.sectionTitle}>Security</Text>
@@ -103,20 +107,22 @@ export default function ParentDetailsScreen(): React.JSX.Element {
 
         {error && <Text style={styles.errorText}>{error}</Text>}
 
-        <View style={styles.actions}>
-          <Button
-            label="Save Changes"
-            onPress={handleSave}
-            loading={isSubmitting}
-            disabled={isSubmitting || (fullName === parent?.fullName && phone === (parent?.phone || '') && !password)}
-          />
-          <Button
-            label="Sign Out"
-            variant="secondary"
-            onPress={handleSignOut}
-            icon={IconName.lock}
-          />
-        </View>
+        {!isReadonly && (
+          <View style={styles.actions}>
+            <Button
+              label="Save Changes"
+              onPress={handleSave}
+              loading={isSubmitting}
+              disabled={isSubmitting || (fullName === parent?.fullName && phone === (parent?.phone || '') && !password)}
+            />
+            <Button
+              label="Sign Out"
+              variant="secondary"
+              onPress={handleSignOut}
+              icon={IconName.lock}
+            />
+          </View>
+        )}
       </View>
     </Screen>
   );

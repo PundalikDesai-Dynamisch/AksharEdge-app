@@ -19,8 +19,8 @@ export function PopulatedParentState({ childrenData }: PopulatedParentStateProps
   const navigation = useNavigation<ParentScreenProps<'ParentHome'>['navigation']>();
   const parent = useAppSelector(state => state.auth.parent);
 
-  const handleChildPress = () => {
-    // In future phase, route to child's dashboard
+  const handleChildPress = (childId: string) => {
+    navigation.navigate('ChildTabs', { childId });
   };
 
   const handleTabSelect = (key: string) => {
@@ -44,7 +44,7 @@ export function PopulatedParentState({ childrenData }: PopulatedParentStateProps
     return (
       <TouchableOpacity 
         style={styles.card} 
-        onPress={() => handleChildPress()}
+        onPress={() => handleChildPress(item.childId)}
         activeOpacity={0.7}
       >
         <Avatar avatarId={item.avatarId} size={48} />

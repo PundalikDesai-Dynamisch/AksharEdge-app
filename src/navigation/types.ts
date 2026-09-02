@@ -22,12 +22,20 @@ export type WizardStackParamList = {
   AssessmentPlaceholder: undefined;
 };
 
+export type ChildStackParamList = {
+  ReadyToPlay: undefined;
+  Report: undefined;
+  ParentDetails: { readonly?: boolean };
+  Support: { origin: 'ParentHome' | 'ReadyToPlay' };
+};
+
 export type ParentStackParamList = {
   ParentHome: undefined;
   AllChildren: undefined;
   ParentDetails: undefined;
   Support: { origin: 'ParentHome' | 'ReadyToPlay' };
   WizardPlaceholder: { childId?: string };
+  ChildTabs: { childId: string };
 };
 
 export type AppStackParamList = {
@@ -54,6 +62,10 @@ export type ParentScreenProps<T extends keyof ParentStackParamList> = NativeStac
 >;
 export type WizardScreenProps<T extends keyof WizardStackParamList> = NativeStackScreenProps<
   WizardStackParamList,
+  T
+>;
+export type ChildScreenProps<T extends keyof ChildStackParamList> = NativeStackScreenProps<
+  ChildStackParamList,
   T
 >;
 
