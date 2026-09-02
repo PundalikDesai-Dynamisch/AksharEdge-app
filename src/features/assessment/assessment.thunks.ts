@@ -1,0 +1,148 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import type { AppDispatch, RootState } from '@/store';
+import { buildRepositories } from '@/data/container';
+import { buildMissionPlan } from '@/domain/policies/assessmentPolicy';
+import { APP_VERSION } from '@/constants/config';
+import type { Unsubscribe } from '@/data/repositories/types';
+import type { Assessment } from '@/domain/entities/Assessment';
+import type { SaveGameResultInput } from '@/data/repositories/assessmentRepository';
+import type { SchoolingLevel } from '@/types/models';
+
+import { assessmentUpdated, assessmentError, setAssessmentChildId } from './assessment.slice';
+
+// Keep track of the active subscription per child
+let unsubscribeFromAssessment: Unsubscribe | null = null;
+let currentSubscribedChildId: string | null = null;
+
+export const startAssessmentSubscription = createAsyncThunk<
+  void,
+  string,
+  { dispatch: AppDispatch; rejectValue: string }
+>(
+  'assessment/startSubscription',
+  async (childId, { dispatch, rejectWithValue }) => {
+    // If we're already subscribed to this exact child, do nothing
+    if (unsubscribeFromAssessment && currentSubscribedChildId === childId) {
+      return;
+    }
+
+    // Clean up any existing subscription for a different child
+    if (unsubscribeFromAssessment) {
+      unsubscribeFromAssessment();
+      unsubscribeFromAssessment = null;
+      currentSubscribedChildId = null;
+    }
+
+    dispatch(setAssessmentChildId(childId));
+
+    try {
+      const { assessments: assessmentRepo } = buildRepositories();
+      
+      currentSubscribedChildId = childId;
+      unsubscribeFromAssessment = assessmentRepo.observeLatestForChild(
+        childId,
+        (data: Assessment | null) => {
+          dispatch(assessmentUpdated({ childId, assessment: data }));
+        },
+        (error: unknown) => {
+          dispatch(assessmentError(error instanceof Error ? error.message : String(error)));
+        }
+      );
+    } catch (e) {
+      return rejectWithValue(e instanceof Error ? e.message : 'Unknown error');
+    }
+  }
+);
+
+export const stopAssessmentSubscription = createAsyncThunk(
+  'assessment/stopSubscription',
+  async () => {
+    if (unsubscribeFromAssessment) {
+      unsubscribeFromAssessment();
+      unsubscribeFromAssessment = null;
+      currentSubscribedChildId = null;
+    }
+  }
+);
+
+export interface StartAssessmentParams {
+  childId: string;
+  parentId: string;
+  ageYears: number;
+  schooling: SchoolingLevel;
+}
+
+export const startAssessment = createAsyncThunk<
+  void,
+  StartAssessmentParams,
+  { state: RootState; rejectValue: string }
+>(
+  'assessment/startAssessment',
+  async ({ childId, parentId, ageYears, schooling }, { getState, rejectWithValue }) => {
+    const state = getState();
+    const currentAssessment = state.assessment.assessment;
+
+    // Idempotent start: if there is already an in_progress assessment, we just resume
+    if (currentAssessment && currentAssessment.status === 'in_progress') {
+      return;
+    }
+
+    try {
+      const { assessments: assessmentRepo } = buildRepositories();
+      const missionPlan = buildMissionPlan({ ageYears, schooling });
+
+      // We resolve the band from the first game in the plan (they all map to the same band anyway)
+      // or we can resolve it directly here if we had access to `resolveAgeBand`.
+      // Let's resolve it directly:
+      const { resolveAgeBand } = await import('@/domain/policies/assessmentPolicy');
+      const ageBand = resolveAgeBand({ ageYears, schooling });
+
+      await assessmentRepo.create({
+        childId,
+        parentId,
+        ageBand,
+        missionPlan,
+        appVersion: APP_VERSION,
+        unityBuildId: null, // Stay null until Phase 5
+      });
+
+      // We don't need to dispatch an update manually because the snapshot listener
+      // will pick up the new document and update the state automatically.
+    } catch (e) {
+      return rejectWithValue(e instanceof Error ? e.message : 'Unknown error');
+    }
+  }
+);
+
+export const recordGameResult = createAsyncThunk<
+  void,
+  SaveGameResultInput,
+  { rejectValue: string }
+>(
+  'assessment/recordGameResult',
+  async (input, { rejectWithValue }) => {
+    try {
+      const { assessments: assessmentRepo } = buildRepositories();
+      await assessmentRepo.saveGameResult(input);
+    } catch (e) {
+      return rejectWithValue(e instanceof Error ? e.message : 'Unknown error');
+    }
+  }
+);
+
+export const submitAssessment = createAsyncThunk<
+  void,
+  string, // assessmentId
+  { rejectValue: string }
+>(
+  'assessment/submitAssessment',
+  async (assessmentId, { rejectWithValue }) => {
+    try {
+      const { assessments: assessmentRepo } = buildRepositories();
+      await assessmentRepo.markSubmitted(assessmentId);
+    } catch (e) {
+      return rejectWithValue(e instanceof Error ? e.message : 'Unknown error');
+    }
+  }
+);
