@@ -60,8 +60,8 @@ export function mapDataError(error: unknown, fallbackMessage: string): AppError 
   const known = CODE_MAP[code];
 
   if (known !== undefined) {
-    return new AppError(known.code, known.message, error, known.retry);
+    return new AppError(known.code, known.message + ' ' + String(error), error, known.retry);
   }
 
-  return new AppError('UNKNOWN', fallbackMessage, error, true);
+  return new AppError('UNKNOWN', String(error) + ' ' + fallbackMessage, error, true);
 }

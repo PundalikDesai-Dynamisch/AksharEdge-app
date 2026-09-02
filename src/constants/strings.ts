@@ -8,6 +8,13 @@ export const strings = {
     name: 'AksharEdge',
     welcomeTitle: 'Welcome to AksharEdge',
     welcomeSubtitle: 'A playful way to understand how your child learns',
+    readyToPlay: 'Ready To Play',
+    readyToPlaySubtitle: 'Complete the games and writing task to get your report.',
+    resultsPreparing: 'Your results are being prepared. Check the Report tab.',
+  },
+  actions: {
+    start: 'Start',
+    resume: 'Resume',
   },
 
   common: {

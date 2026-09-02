@@ -35,12 +35,14 @@ import { nowIso } from './mappers/timestamps';
 export const firebaseAssessmentRepository: AssessmentRepository = {
   observeLatestForChild(
     childId: string,
+    parentId: string,
     onChange: Observer<Assessment | null>,
     onError: ErrorObserver,
   ): Unsubscribe {
     const q = query(
       collection(getFirestore(), COLLECTIONS.assessments),
       where('childId', '==', childId),
+      where('parentId', '==', parentId),
       orderBy('startedAt', 'desc'),
       limit(1),
     );

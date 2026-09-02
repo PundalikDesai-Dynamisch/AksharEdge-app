@@ -14,6 +14,7 @@
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "childId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" },
         { "fieldPath": "startedAt", "order": "DESCENDING" }
       ]
     }

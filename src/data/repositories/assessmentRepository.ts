@@ -29,6 +29,7 @@ export interface AssessmentRepository {
   /** The assessment the Ready to Play screen renders from; null before the first run. */
   observeLatestForChild(
     childId: string,
+    parentId: string,
     onChange: Observer<Assessment | null>,
     onError: ErrorObserver,
   ): Unsubscribe;
