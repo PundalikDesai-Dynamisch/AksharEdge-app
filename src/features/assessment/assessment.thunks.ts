@@ -18,10 +18,10 @@ let currentSubscribedChildId: string | null = null;
 export const startAssessmentSubscription = createAsyncThunk<
   void,
   string,
-  { dispatch: AppDispatch; rejectValue: string }
+  { dispatch: AppDispatch; rejectValue: string; state: RootState }
 >(
   'assessment/startSubscription',
-  async (childId, { dispatch, rejectWithValue }) => {
+  async (childId, { dispatch, rejectWithValue, getState }) => {
     // If we're already subscribed to this exact child, do nothing
     if (unsubscribeFromAssessment && currentSubscribedChildId === childId) {
       return;
@@ -38,10 +38,16 @@ export const startAssessmentSubscription = createAsyncThunk<
 
     try {
       const { assessments: assessmentRepo } = buildRepositories();
+      const parentId = getState().auth.parent?.parentId;
       
+      if (!parentId) {
+        return rejectWithValue('User must be signed in to load assessment');
+      }
+
       currentSubscribedChildId = childId;
       unsubscribeFromAssessment = assessmentRepo.observeLatestForChild(
         childId,
+        parentId,
         (data: Assessment | null) => {
           dispatch(assessmentUpdated({ childId, assessment: data }));
         },

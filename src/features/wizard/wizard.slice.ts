@@ -137,5 +137,5 @@ export const selectCanReachConfirmation = (state: { wizard: WizardState }): bool
   // This selector must NOT consult lastKnown.
   // Reaching confirmation depends on a live OS check (Branch 24).
   // This just covers data fields.
-  return selectStep1Valid(state) && w.schooling !== null && w.gender !== null;
+  return selectStep1Valid(state) && w.schooling !== null && w.gender !== null && w.location !== null;
 };

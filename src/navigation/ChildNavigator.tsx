@@ -6,9 +6,9 @@ import { useRoute } from '@react-navigation/native';
 
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { startAssessmentSubscription } from '@features/assessment/assessment.thunks';
-import { isPlayAvailable, isReportAvailable } from '@/domain/policies/reportAvailability';
+import { isPlayAvailable } from '@/domain/policies/reportAvailability';
 
-import { ReadyToPlayScreen } from '@features/assessment/screens/ReadyToPlayScreen';
+import ReadyToPlayScreen from '@features/assessment/screens/ReadyToPlayScreen';
 import { ReportScreen } from '@features/reports/screens/ReportScreen';
 import ParentDetailsScreen from '@features/parent/screens/ParentDetailsScreen';
 import SupportScreen from '@features/parent/screens/SupportScreen';
