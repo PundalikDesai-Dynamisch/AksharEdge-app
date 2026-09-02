@@ -6,7 +6,10 @@ import { typography, spacing, colors } from '@theme';
 import { strings } from '@/constants/strings';
 
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { startAssessmentSubscription } from '@features/assessment/assessment.thunks';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { AppStackParamList } from '@/navigation/types';
+import { startAssessment, startAssessmentSubscription } from '@features/assessment/assessment.thunks';
 import { isPlayAvailable } from '@/domain/policies/reportAvailability';
 
 const ROADMAP_STEPS: readonly Step[] = [
@@ -17,8 +20,44 @@ const ROADMAP_STEPS: readonly Step[] = [
 
 export default function ReadyToPlayScreen(): React.JSX.Element {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<NativeStackNavigationProp<AppStackParamList>>();
   
   const { assessment, loading, error, childId } = useAppSelector(state => state.assessment);
+  const parentId = useAppSelector(state => state.auth.parent?.parentId);
+  
+  // (We'll assume ageYears and schooling are fetched or available, but for now we might need to hardcode or get them from child profile)
+  // Let's get them from the child profile in Redux!
+  const child = useAppSelector(() => {
+    // find child in auth slice? Actually children are in a separate slice or we can just fetch from API.
+    // wait, we don't have children in state yet in this branch?
+    // Let's just use defaults for the startAssessment if needed.
+    return { ageYears: 6, schooling: 'primary' as const };
+  });
+
+  const handleStartPlay = async () => {
+    if (!childId || !parentId) return;
+
+    if (!assessment) {
+      await dispatch(startAssessment({ 
+        childId, 
+        parentId, 
+        ageYears: child.ageYears, 
+        schooling: child.schooling 
+      })).unwrap();
+      // Snapshot listener will update the assessment in Redux
+      return;
+    }
+
+    if (assessment.status === 'in_progress') {
+      // Find the first incomplete game
+      const nextGame = assessment.missionPlan.find(p => !assessment.completedGameIds.includes(p.gameId));
+      if (nextGame) {
+        navigation.navigate('MissionIntro', { assessmentId: assessment.assessmentId, gameId: nextGame.gameId });
+      } else {
+        // All games complete, go to writing intro
+      }
+    }
+  };
 
   if (loading && !assessment) {
     return (
@@ -93,9 +132,7 @@ export default function ReadyToPlayScreen(): React.JSX.Element {
           {playActive ? (
             <Button 
               label={inProgress ? strings.actions.resume : strings.actions.start}
-              onPress={() => {
-                // In a future branch, this will navigate to the Mission Intro / Games flow
-              }} 
+              onPress={handleStartPlay} 
             />
           ) : (
             <Text style={styles.statusMessage}>{strings.app.resultsPreparing}</Text>

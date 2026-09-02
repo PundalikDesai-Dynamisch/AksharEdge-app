@@ -40,7 +40,8 @@ export type ParentStackParamList = {
 
 export type AppStackParamList = {
   Parent: NavigatorScreenParams<ParentStackParamList>;
-  UnityGame: { gameId: string };
+  MissionIntro: { assessmentId: string; gameId: string };
+  UnityGame: { assessmentId: string; gameId: string };
   Gallery: undefined;
 };
 
