@@ -20,6 +20,9 @@ const TRANSPILED_PACKAGES = [
   'react-native-gesture-handler',
   'react-native-screens',
   'immer',
+  '@react-native-firebase',
+  'firebase',
+  '@firebase',
 ].join('|');
 
 module.exports = {

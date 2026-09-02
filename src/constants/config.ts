@@ -25,3 +25,4 @@ export const TOAST_DURATION_MS: Readonly<Record<ToastKind, number>> = {
 export const MIN_TOUCH_TARGET = 44;
 
 export const APP_SCHEME = 'aksharedge://';
+export const APP_VERSION = '0.0.1';
