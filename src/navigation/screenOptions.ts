@@ -21,6 +21,7 @@ export const defaultStackOptions: NativeStackNavigationOptions = {
   ...sharedHeader,
   contentStyle: { backgroundColor: colors.background },
   animation: 'slide_from_right',
+  orientation: 'portrait',
 };
 
 /**

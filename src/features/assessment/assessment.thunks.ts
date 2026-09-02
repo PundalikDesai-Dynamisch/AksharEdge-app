@@ -152,3 +152,73 @@ export const submitAssessment = createAsyncThunk<
     }
   }
 );
+
+export interface UploadWritingSampleParams {
+  localUri: string;
+  mimeType: string;
+  sizeBytes: number;
+  assessmentId: string;
+  promptText: string;
+  retakeCount: number;
+  parentId: string;
+  childId: string;
+  fileName: string;
+}
+
+export const uploadWritingSample = createAsyncThunk<
+  void,
+  UploadWritingSampleParams,
+  { rejectValue: string }
+>(
+  'assessment/uploadWritingSample',
+  async (
+    { localUri, mimeType, sizeBytes, assessmentId, promptText, retakeCount, parentId, childId, fileName },
+    { rejectWithValue }
+  ) => {
+    // 1. Enforce the 25 MB limit before even trying Firebase
+    if (sizeBytes > 25 * 1024 * 1024) {
+      return rejectWithValue("This photo is too large. Please take a photo under 25 MB.");
+    }
+
+    const { assessments: assessmentRepo, media: mediaRepo } = buildRepositories();
+    const storagePath = mediaRepo.buildWritingPath({ parentId, childId, assessmentId, fileName });
+
+    try {
+      // 2. Upload the image
+      const uploadedImage = await mediaRepo.uploadImage({ localUri, storagePath, mimeType });
+      
+      // 3. Save the success status
+      await assessmentRepo.saveWritingSample({
+        assessmentId,
+        storagePath,
+        downloadUrl: uploadedImage.downloadUrl,
+        promptText,
+        mimeType,
+        sizeBytes,
+        retakeCount,
+      });
+    } catch (error: any) {
+      // AppError is thrown from firebaseMediaRepository
+      if (error && typeof error === 'object' && 'retryable' in error) {
+        if (error.retryable) {
+          // Pass it up to the UI so it can offer a retry
+          throw error;
+        } else {
+          // Hard failure (e.g. storage/unauthorized)
+          await assessmentRepo.saveWritingSample({
+            assessmentId,
+            storagePath,
+            downloadUrl: null, // this saves status: 'failed'
+            promptText,
+            mimeType,
+            sizeBytes,
+            retakeCount,
+          });
+          return rejectWithValue(error.message);
+        }
+      }
+
+      return rejectWithValue(error instanceof Error ? error.message : 'Unknown error');
+    }
+  }
+);

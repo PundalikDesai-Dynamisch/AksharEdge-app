@@ -55,6 +55,7 @@ export default function ReadyToPlayScreen(): React.JSX.Element {
         navigation.navigate('MissionIntro', { assessmentId: assessment.assessmentId, gameId: nextGame.gameId });
       } else {
         // All games complete, go to writing intro
+        navigation.navigate('WritingIntro', { assessmentId: assessment.assessmentId });
       }
     }
   };
