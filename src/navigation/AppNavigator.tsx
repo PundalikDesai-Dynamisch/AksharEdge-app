@@ -2,7 +2,8 @@ import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { UnityGameScreen } from '@features/games/screens/UnityGameScreen';
+import UnityGameScreen from '@features/games/screens/UnityGameScreen';
+import { MissionIntroScreen } from '@features/games/screens/MissionIntroScreen';
 import GalleryScreen from '@features/dev/screens/GalleryScreen';
 
 import { ParentNavigator } from './ParentNavigator';
@@ -17,6 +18,7 @@ export function AppNavigator(): React.JSX.Element {
   return (
     <Stack.Navigator screenOptions={defaultStackOptions}>
       <Stack.Screen name="Parent" component={ParentNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="MissionIntro" component={MissionIntroScreen} options={{ headerShown: false }} />
       
       <Stack.Screen name="UnityGame" component={UnityGameScreen} options={{ headerShown: false }} />
 
